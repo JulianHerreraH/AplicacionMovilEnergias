@@ -1,0 +1,32 @@
+
+Datos secciones aprender - 5c803b5d2e4731596f18270d
+https://api.jsonbin.io/b/5c803b5d2e4731596f18270d
+[
+  {
+    "LearnSectionName": "Energias Renovables"
+  },
+  {
+    "LearnSectionName": "Estadísticas"
+  },
+  {
+    "LearnSectionName": "¿Cuánto consumen los dispositivos?"
+  }
+]
+------------------------------
+Datos seccion principal realidad aumentada - 5c8042022e4731596f182b3c
+https://api.jsonbin.io/b/5c8042022e4731596f182b3c
+[
+  {
+    "ARMainSectionName": "Foco",
+    "ARMainSectionData": "['7W', '12W', '36W']"
+  },
+  {
+    "ARMainSectionName": "Paneles Solares",
+    "ARMainSectionData": "['Celdas 50x50mm', 'Celdas 100x100mm', 'Celdas 250x250mm']"
+  },
+  {
+    "ARMainSectionName": "Turbinas Eolicas",
+    "ARMainSectionData": "['12V', '18V', '24V']"
+  }
+]
+-----------------------------
