@@ -29,8 +29,8 @@ class WelcomeScreenComsumptionViewController: UIViewController {
         ExplanationConsumptionTextView.isEditable = false
         EmpezarButtonVar.layer.cornerRadius = 5
             EmpezarButtonVar.clipsToBounds = true
-        EmpezarButtonVar.backgroundColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0)
-        EmpezarButtonVar.layer.borderWidth = 1
+        EmpezarButtonVar.backgroundColor = UIColor(red: 100/255, green: 100/255, blue: 100/255, alpha: 0.1)
+        EmpezarButtonVar.layer.borderWidth = 0
             EmpezarButtonVar.layer.cornerRadius = 5
        EmpezarButtonVar.layer.borderColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0).cgColor
         ExplanationConsumptionTextView.isScrollEnabled = false

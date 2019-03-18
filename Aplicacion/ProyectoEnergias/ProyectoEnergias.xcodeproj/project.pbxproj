@@ -16,6 +16,25 @@
 		39B7C853223063A9001C12A0 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B7C852223063A9001C12A0 /* MainTabViewController.swift */; };
 		39B7C85522306826001C12A0 /* LearnTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B7C85422306826001C12A0 /* LearnTableViewController.swift */; };
 		39B7C85722307578001C12A0 /* ARMainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B7C85622307578001C12A0 /* ARMainTableViewController.swift */; };
+		F177A997223EC0EB00513F35 /* HomeARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177A996223EC0EB00513F35 /* HomeARViewController.swift */; };
+		F177A99A223EC25500513F35 /* light-bulb.png in Resources */ = {isa = PBXBuildFile; fileRef = F177A998223EC25400513F35 /* light-bulb.png */; };
+		F177A99B223EC25500513F35 /* solarPaneliconBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = F177A999223EC25400513F35 /* solarPaneliconBlue.png */; };
+		F177A99D223ECA8300513F35 /* ARTableCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177A99C223ECA8300513F35 /* ARTableCellTableViewCell.swift */; };
+		F1D1FAEA223D58DB00C89252 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D1FAE9223D58DB00C89252 /* StatisticsViewController.swift */; };
+		F1D1FAED223D5AB500C89252 /* graph1.png in Resources */ = {isa = PBXBuildFile; fileRef = F1D1FAEB223D5AB500C89252 /* graph1.png */; };
+		F1D1FAEE223D5AB500C89252 /* PlotMultipleTimeSeries.png in Resources */ = {isa = PBXBuildFile; fileRef = F1D1FAEC223D5AB500C89252 /* PlotMultipleTimeSeries.png */; };
+		F1D1FAF0223D71E700C89252 /* HomeLearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D1FAEF223D71E700C89252 /* HomeLearnViewController.swift */; };
+		F1D1FAF2223D8A1A00C89252 /* RightArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = F1D1FAF1223D8A1A00C89252 /* RightArrow.png */; };
+		F1D1FAF5223D928600C89252 /* 013-green-energy-2-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F1D1FAF3223D928600C89252 /* 013-green-energy-2-icon.png */; };
+		F1D1FAF6223D928600C89252 /* power.png in Resources */ = {isa = PBXBuildFile; fileRef = F1D1FAF4223D928600C89252 /* power.png */; };
+		F1D1FAF8223D935F00C89252 /* solar-panels.png in Resources */ = {isa = PBXBuildFile; fileRef = F1D1FAF7223D935E00C89252 /* solar-panels.png */; };
+		F1D1FAFE223DC20500C89252 /* geoIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F1D1FAF9223DC20400C89252 /* geoIcon.png */; };
+		F1D1FAFF223DC20500C89252 /* hydroIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F1D1FAFA223DC20400C89252 /* hydroIcon.png */; };
+		F1D1FB00223DC20500C89252 /* bulbIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F1D1FAFB223DC20400C89252 /* bulbIcon.png */; };
+		F1D1FB01223DC20500C89252 /* windIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F1D1FAFC223DC20400C89252 /* windIcon.png */; };
+		F1D1FB02223DC20500C89252 /* solarIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F1D1FAFD223DC20500C89252 /* solarIcon.png */; };
+		F1D1FB04223DCF1B00C89252 /* IconWind32.png in Resources */ = {isa = PBXBuildFile; fileRef = F1D1FB03223DCF1B00C89252 /* IconWind32.png */; };
+		F1D1FB06223DDBE100C89252 /* EnergyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D1FB05223DDBE100C89252 /* EnergyDetailViewController.swift */; };
 		F1E9251D223C79B80011EBDB /* WelcomeScreenComsumptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E9251C223C79B80011EBDB /* WelcomeScreenComsumptionViewController.swift */; };
 		F1E92520223C86D10011EBDB /* Bombilla-Filamentos-LED.png in Resources */ = {isa = PBXBuildFile; fileRef = F1E9251F223C86D10011EBDB /* Bombilla-Filamentos-LED.png */; };
 		F1E92522223CA1B10011EBDB /* infoIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F1E92521223CA1B10011EBDB /* infoIcon.png */; };
@@ -40,6 +59,25 @@
 		39B7C852223063A9001C12A0 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		39B7C85422306826001C12A0 /* LearnTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnTableViewController.swift; sourceTree = "<group>"; };
 		39B7C85622307578001C12A0 /* ARMainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARMainTableViewController.swift; sourceTree = "<group>"; };
+		F177A996223EC0EB00513F35 /* HomeARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeARViewController.swift; sourceTree = "<group>"; };
+		F177A998223EC25400513F35 /* light-bulb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "light-bulb.png"; path = "../../../Media/Images/light-bulb.png"; sourceTree = "<group>"; };
+		F177A999223EC25400513F35 /* solarPaneliconBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = solarPaneliconBlue.png; path = ../../../Media/Images/solarPaneliconBlue.png; sourceTree = "<group>"; };
+		F177A99C223ECA8300513F35 /* ARTableCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ARTableCellTableViewCell.swift; path = ProyectoEnergias/ARTableCellTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		F1D1FAE9223D58DB00C89252 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		F1D1FAEB223D5AB500C89252 /* graph1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = graph1.png; path = ../../../Media/Images/graph1.png; sourceTree = "<group>"; };
+		F1D1FAEC223D5AB500C89252 /* PlotMultipleTimeSeries.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PlotMultipleTimeSeries.png; path = ../../../Media/Images/PlotMultipleTimeSeries.png; sourceTree = "<group>"; };
+		F1D1FAEF223D71E700C89252 /* HomeLearnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLearnViewController.swift; sourceTree = "<group>"; };
+		F1D1FAF1223D8A1A00C89252 /* RightArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RightArrow.png; path = ../../../Media/Images/RightArrow.png; sourceTree = "<group>"; };
+		F1D1FAF3223D928600C89252 /* 013-green-energy-2-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "013-green-energy-2-icon.png"; path = "../../../Media/Images/013-green-energy-2-icon.png"; sourceTree = "<group>"; };
+		F1D1FAF4223D928600C89252 /* power.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = power.png; path = ../../../Media/Images/power.png; sourceTree = "<group>"; };
+		F1D1FAF7223D935E00C89252 /* solar-panels.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "solar-panels.png"; path = "../../../Media/Images/solar-panels.png"; sourceTree = "<group>"; };
+		F1D1FAF9223DC20400C89252 /* geoIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = geoIcon.png; path = ../../../Media/Images/geoIcon.png; sourceTree = "<group>"; };
+		F1D1FAFA223DC20400C89252 /* hydroIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hydroIcon.png; path = ../../../Media/Images/hydroIcon.png; sourceTree = "<group>"; };
+		F1D1FAFB223DC20400C89252 /* bulbIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bulbIcon.png; path = ../../../Media/Images/bulbIcon.png; sourceTree = "<group>"; };
+		F1D1FAFC223DC20400C89252 /* windIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = windIcon.png; path = ../../../Media/Images/windIcon.png; sourceTree = "<group>"; };
+		F1D1FAFD223DC20500C89252 /* solarIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = solarIcon.png; path = ../../../Media/Images/solarIcon.png; sourceTree = "<group>"; };
+		F1D1FB03223DCF1B00C89252 /* IconWind32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IconWind32.png; path = ../../../Media/Images/IconWind32.png; sourceTree = "<group>"; };
+		F1D1FB05223DDBE100C89252 /* EnergyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyDetailViewController.swift; sourceTree = "<group>"; };
 		F1E9251C223C79B80011EBDB /* WelcomeScreenComsumptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenComsumptionViewController.swift; sourceTree = "<group>"; };
 		F1E9251F223C86D10011EBDB /* Bombilla-Filamentos-LED.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Bombilla-Filamentos-LED.png"; path = "../../../Media/Images/Bombilla-Filamentos-LED.png"; sourceTree = "<group>"; };
 		F1E92521223CA1B10011EBDB /* infoIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = infoIcon.png; path = ../../../Media/Images/infoIcon.png; sourceTree = "<group>"; };
@@ -87,6 +125,7 @@
 				39B7C8402230587D001C12A0 /* FirstViewController.swift */,
 				39B7C8422230587D001C12A0 /* SecondViewController.swift */,
 				39B7C8442230587D001C12A0 /* Main.storyboard */,
+				F1D1FAE9223D58DB00C89252 /* StatisticsViewController.swift */,
 				F1E92529223CB55A0011EBDB /* Images */,
 				F1E9251C223C79B80011EBDB /* WelcomeScreenComsumptionViewController.swift */,
 				39B7C85422306826001C12A0 /* LearnTableViewController.swift */,
@@ -97,6 +136,9 @@
 				39B7C85622307578001C12A0 /* ARMainTableViewController.swift */,
 				F1E92525223CA3C00011EBDB /* MainConsumptionViewController.swift */,
 				F1E92527223CA5460011EBDB /* InfoComsumptionHelpViewController.swift */,
+				F1D1FAEF223D71E700C89252 /* HomeLearnViewController.swift */,
+				F1D1FB05223DDBE100C89252 /* EnergyDetailViewController.swift */,
+				F177A996223EC0EB00513F35 /* HomeARViewController.swift */,
 			);
 			path = ProyectoEnergias;
 			sourceTree = "<group>";
@@ -104,12 +146,27 @@
 		F1E9251E223C869D0011EBDB /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				F177A998223EC25400513F35 /* light-bulb.png */,
+				F177A999223EC25400513F35 /* solarPaneliconBlue.png */,
+				F1D1FB03223DCF1B00C89252 /* IconWind32.png */,
+				F1D1FAFB223DC20400C89252 /* bulbIcon.png */,
+				F1D1FAF9223DC20400C89252 /* geoIcon.png */,
+				F1D1FAFA223DC20400C89252 /* hydroIcon.png */,
+				F1D1FAFD223DC20500C89252 /* solarIcon.png */,
+				F1D1FAFC223DC20400C89252 /* windIcon.png */,
+				F1D1FAF7223D935E00C89252 /* solar-panels.png */,
+				F1D1FAF3223D928600C89252 /* 013-green-energy-2-icon.png */,
+				F1D1FAF4223D928600C89252 /* power.png */,
+				F1D1FAF1223D8A1A00C89252 /* RightArrow.png */,
+				F1D1FAEB223D5AB500C89252 /* graph1.png */,
+				F1D1FAEC223D5AB500C89252 /* PlotMultipleTimeSeries.png */,
 				F1E9252F223CC0B40011EBDB /* statistics2.jpg */,
 				F1E9252D223CBEEE0011EBDB /* statistics.jpg */,
 				F1E9252B223CBA5A0011EBDB /* recibo.jpg */,
 				F1E92523223CA2980011EBDB /* infoIconBlack.png */,
 				F1E92521223CA1B10011EBDB /* infoIcon.png */,
 				F1E9251F223C86D10011EBDB /* Bombilla-Filamentos-LED.png */,
+				F177A99C223ECA8300513F35 /* ARTableCellTableViewCell.swift */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -172,15 +229,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1D1FAFE223DC20500C89252 /* geoIcon.png in Resources */,
 				39B7C84B2230587F001C12A0 /* LaunchScreen.storyboard in Resources */,
 				F1E9252E223CBEEE0011EBDB /* statistics.jpg in Resources */,
 				F1E92520223C86D10011EBDB /* Bombilla-Filamentos-LED.png in Resources */,
 				F1E9252A223CB55B0011EBDB /* Images in Resources */,
+				F177A99A223EC25500513F35 /* light-bulb.png in Resources */,
+				F1D1FAF8223D935F00C89252 /* solar-panels.png in Resources */,
+				F1D1FB01223DC20500C89252 /* windIcon.png in Resources */,
+				F1D1FB00223DC20500C89252 /* bulbIcon.png in Resources */,
+				F1D1FAED223D5AB500C89252 /* graph1.png in Resources */,
 				F1E92522223CA1B10011EBDB /* infoIcon.png in Resources */,
 				39B7C8482230587F001C12A0 /* Assets.xcassets in Resources */,
+				F1D1FB04223DCF1B00C89252 /* IconWind32.png in Resources */,
 				F1E9252C223CBA5A0011EBDB /* recibo.jpg in Resources */,
 				F1E92530223CC0B50011EBDB /* statistics2.jpg in Resources */,
+				F1D1FB02223DC20500C89252 /* solarIcon.png in Resources */,
+				F1D1FAF2223D8A1A00C89252 /* RightArrow.png in Resources */,
 				F1E92524223CA2980011EBDB /* infoIconBlack.png in Resources */,
+				F1D1FAF6223D928600C89252 /* power.png in Resources */,
+				F177A99B223EC25500513F35 /* solarPaneliconBlue.png in Resources */,
+				F1D1FAEE223D5AB500C89252 /* PlotMultipleTimeSeries.png in Resources */,
+				F1D1FAFF223DC20500C89252 /* hydroIcon.png in Resources */,
+				F1D1FAF5223D928600C89252 /* 013-green-energy-2-icon.png in Resources */,
 				39B7C8462230587D001C12A0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,14 +264,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				39B7C8432230587D001C12A0 /* SecondViewController.swift in Sources */,
+				F1D1FAF0223D71E700C89252 /* HomeLearnViewController.swift in Sources */,
+				F1D1FAEA223D58DB00C89252 /* StatisticsViewController.swift in Sources */,
 				F1E92526223CA3C00011EBDB /* MainConsumptionViewController.swift in Sources */,
 				F1E92528223CA5460011EBDB /* InfoComsumptionHelpViewController.swift in Sources */,
 				39B7C85722307578001C12A0 /* ARMainTableViewController.swift in Sources */,
+				F1D1FB06223DDBE100C89252 /* EnergyDetailViewController.swift in Sources */,
+				F177A997223EC0EB00513F35 /* HomeARViewController.swift in Sources */,
 				39B7C853223063A9001C12A0 /* MainTabViewController.swift in Sources */,
 				39B7C83F2230587D001C12A0 /* AppDelegate.swift in Sources */,
 				39B7C8412230587D001C12A0 /* FirstViewController.swift in Sources */,
 				F1E9251D223C79B80011EBDB /* WelcomeScreenComsumptionViewController.swift in Sources */,
 				39B7C85522306826001C12A0 /* LearnTableViewController.swift in Sources */,
+				F177A99D223ECA8300513F35 /* ARTableCellTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

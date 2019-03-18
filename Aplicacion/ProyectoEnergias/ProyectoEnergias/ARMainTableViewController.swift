@@ -7,11 +7,40 @@
 //
 
 import UIKit
+extension UIImageView {
+    public func imageFromURLTable(urlString: String) {
+        
+        let activityIndicator = UIActivityIndicatorView(style: .gray)
+        activityIndicator.frame = CGRect.init(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
+        activityIndicator.startAnimating()
+        if self.image == nil{
+            self.addSubview(activityIndicator)
+        }
+        
+        URLSession.shared.dataTask(with: NSURL(string: urlString)! as URL, completionHandler: { (data, response, error) -> Void in
+            
+            if error != nil {
+                print(error ?? "No Error")
+                return
+            }
+            DispatchQueue.main.async(execute: { () -> Void in
+                let image = UIImage(data: data!)
+                activityIndicator.removeFromSuperview()
+                self.image = image
+            })
+            
+        }).resume()
+    }
+}
 
-class ARMainTableViewController: UITableViewController, UISearchResultsUpdating {
+class ARMainTableViewController: UITableViewController, UISearchResultsUpdating{
 
-    let dataStringURL = "https://api.jsonbin.io/b/5c8042022e4731596f182b3c"
+    let dataStringURL = "http://martinmolina.com.mx/201911/data/ProyectoEnergiasRenovables/bulbs.json"
     var dataObj: [Any]?
+    var receivedId = -1
+    @IBOutlet weak var cellImage: UIImageView!
+    
+    @IBOutlet weak var cellTitle: UIImageView!
     
     var filteredData = [Any]()
     let searchController = UISearchController(searchResultsController: nil)
@@ -24,8 +53,10 @@ class ARMainTableViewController: UITableViewController, UISearchResultsUpdating 
         else{
             filteredData = dataObj!.filter{
                 let objectData=$0 as! [String:Any]
-                let s:String = objectData["ARMainSectionName"] as! String
-                return(s.lowercased().contains(searchController.searchBar.text!.lowercased()))
+                
+                var titleText = objectData["Bulb"] as! String
+                titleText += objectData["Watts"] as! String
+                return(titleText.lowercased().contains(searchController.searchBar.text!.lowercased()))
             }
         }
         self.tableView.reloadData()
@@ -57,9 +88,9 @@ class ARMainTableViewController: UITableViewController, UISearchResultsUpdating 
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        let dataURL = URL(string:dataStringURL)
-        let data = try? Data(contentsOf: dataURL!)
         
+        var dataURL = URL(string:dataStringURL)
+        let data = try? Data(contentsOf: dataURL!)
         dataObj = try!JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers)  as? [AnyObject]
         
         filteredData = dataObj!
@@ -85,14 +116,26 @@ class ARMainTableViewController: UITableViewController, UISearchResultsUpdating 
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ARMainCell", for: indexPath)
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ARMainCell", for: indexPath) as! ARTableCellTableViewCell
         // Configure the cell...
         //cell.textLabel?.text = dinos[indexPath.row]
        let objectData = filteredData[indexPath.row] as! [String:Any]
-        let sectionName:String = objectData["ARMainSectionName"] as! String
-        
-        cell.textLabel?.text = sectionName
+        //let sectionName:String = objectData["ARMainSectionName"] as! String
+        var titleText = objectData["Bulb"] as! String
+        titleText += " "
+        titleText += objectData["Watts"] as! String
+        cell.cellTitleText.text = titleText
+        var dataText = objectData["Lumens"] as! String
+        dataText += ", "
+        dataText += objectData["ColorTemp"] as! String
+        dataText += ", Vida: "
+        dataText += objectData["Lifetime"] as! String
+            
+        cell.cellDataLabel.text = dataText
+        var imageURL = objectData["Image"] as! String
+        cell.cellImage.imageFromURL(urlString: imageURL)
+
+        //cell.textLabel?.text = sectionName
         return cell
     }
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainConsumptionViewController: UIViewController {
+class MainConsumptionViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
 
     @IBOutlet weak var newBillButton: UIButton!
     
@@ -17,10 +17,25 @@ class MainConsumptionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         newBillButton.layer.cornerRadius = 5
-        newBillButton.backgroundColor = UIColor(red: 76/255, green: 175/255, blue: 80/255, alpha: 1.0)
-    misEstadisticasButton.layer.cornerRadius = 5
-    misEstadisticasButton.backgroundColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0)
+        newBillButton.backgroundColor = UIColor(red: 100/255, green: 100/255, blue: 100/255, alpha: 0.1)
+   newBillButton.layer.borderWidth = 1
+   newBillButton.layer.borderColor = UIColor(red: 100/255, green: 100/255, blue: 100/255, alpha: 0.1).cgColor
+        misEstadisticasButton.layer.borderWidth = 1
+        misEstadisticasButton.layer.borderColor = UIColor(red: 100/255, green: 100/255, blue: 100/255, alpha: 0.2).cgColor
+        misEstadisticasButton.layer.cornerRadius = 5
+   
+    misEstadisticasButton.backgroundColor = UIColor(red: 100/255, green: 100/255, blue: 100/255, alpha: 0.1)
         // Do any additional setup after loading the view.
+    }
+
+    @IBAction func newBillButtonAction(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerController.SourceType.camera
+            imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true, completion:nil)
+        }
     }
     
     @IBAction func InformationButtonConsumption(_ sender: UITapGestureRecognizer) {

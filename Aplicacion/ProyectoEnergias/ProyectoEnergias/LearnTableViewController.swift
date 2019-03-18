@@ -8,16 +8,17 @@
 
 import UIKit
 
+
 class LearnTableViewController: UITableViewController,UISearchResultsUpdating {
 
     
-    let dataStringURL = "https://api.jsonbin.io/b/5c803b5d2e4731596f18270d"
+    let dataStringURL = "http://martinmolina.com.mx/201911/data/ProyectoEnergiasRenovables/Energies.json"
     var dataObj: [Any]?
     
     var filteredData = [Any]()
     let searchController = UISearchController(searchResultsController: nil)
     
-    
+    let iconEnergyName: [UIImage] = [#imageLiteral(resourceName: "solarIcon"), #imageLiteral(resourceName: "windIcon"),#imageLiteral(resourceName: "hydroIcon"),#imageLiteral(resourceName: "geoIcon"),#imageLiteral(resourceName: "bulbIcon")]
     func updateSearchResults(for searchController: UISearchController) {
         if searchController.searchBar.text! == "" {
             filteredData = dataObj!
@@ -25,12 +26,13 @@ class LearnTableViewController: UITableViewController,UISearchResultsUpdating {
         else{
             filteredData = dataObj!.filter{
                 let objectData=$0 as! [String:Any]
-                let s:String = objectData["LearnSectionName"] as! String
+                let s:String = objectData["EnergyName"] as! String
                 return(s.lowercased().contains(searchController.searchBar.text!.lowercased()))
             }
         }
         self.tableView.reloadData()
     }
+    
     func JSONParseArray(_ string: String) -> [AnyObject]{
         if let data = string.data(using: String.Encoding.utf8){
             
@@ -58,6 +60,9 @@ class LearnTableViewController: UITableViewController,UISearchResultsUpdating {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = 100
+        
         let dataURL = URL(string:dataStringURL)
         let data = try? Data(contentsOf: dataURL!)
         
@@ -86,14 +91,19 @@ class LearnTableViewController: UITableViewController,UISearchResultsUpdating {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "learnMainCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "learnMainCell", for: indexPath) as! ARTableCellTableViewCell
         
         // Configure the cell...
         //cell.textLabel?.text = dinos[indexPath.row]
         let objectData = dataObj![indexPath.row] as! [String:Any]
-        let sectionName:String = objectData["LearnSectionName"] as! String
+        let sectionName:String = objectData["EnergyName"] as! String
         
-        cell.textLabel?.text = sectionName
+        //cell.textLabel?.text = sectionName
+        //cell.imageView?.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+
+        cell.cellTitleText.text = sectionName
+        cell.cellImage.image = iconEnergyName[indexPath.row]
+        
         return cell
     }
     
@@ -137,16 +147,15 @@ class LearnTableViewController: UITableViewController,UISearchResultsUpdating {
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
-        let siguiente = segue.destination as! DetalleDinoViewController
+        let siguiente = segue.destination as! EnergyDetailViewController
         let indice = self.tableView.indexPathForSelectedRow?.row
-        let objetoDino = dinosObj[indice!] as! [String:Any]
-        let dino:String = objetoDino["dino"] as! String
-        let dieta:String = objetoDino["dieta"] as! String
-        siguiente.dinoRecibido = dino
-        siguiente.dietaRecibida = dieta
+        let objectData = dataObj?[indice!] as! [String:Any]
+        let title:String = objectData["EnergyName"] as! String
+        siguiente.receivedTitle = title
+        siguiente.receivedEnergyId = indice!
         // Pass the selected object to the new view controller.
-    }*/
+    }
 
 }
