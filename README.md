@@ -1,2 +1,2 @@
 # AplicacionMovilEnergias
-Aplicacion Movil acerca de Energias Renovables 
+Aplicacion Móvil acerca de Energias Renovables 
