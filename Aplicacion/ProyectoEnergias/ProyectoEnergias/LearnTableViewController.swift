@@ -155,6 +155,9 @@ class LearnTableViewController: UITableViewController,UISearchResultsUpdating {
         let title:String = objectData["EnergyName"] as! String
         siguiente.receivedTitle = title
         siguiente.receivedEnergyId = indice!
+        let backItem = UIBarButtonItem()
+        backItem.title = "Energías"
+        navigationItem.backBarButtonItem = backItem
         // Pass the selected object to the new view controller.
     }
 
