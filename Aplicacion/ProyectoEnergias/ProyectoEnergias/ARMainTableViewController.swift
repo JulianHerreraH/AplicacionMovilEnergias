@@ -56,6 +56,9 @@ class ARMainTableViewController: UITableViewController, UISearchResultsUpdating{
                 
                 var titleText = objectData["Bulb"] as! String
                 titleText += objectData["Watts"] as! String
+                titleText += objectData["Lumens"] as! String
+                titleText += objectData["Lifetime"] as! String
+                titleText += objectData["ColorTemp"] as! String
                 return(titleText.lowercased().contains(searchController.searchBar.text!.lowercased()))
             }
         }
