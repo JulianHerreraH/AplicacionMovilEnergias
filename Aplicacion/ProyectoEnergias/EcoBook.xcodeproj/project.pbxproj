@@ -16,8 +16,13 @@
 		39B7C853223063A9001C12A0 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B7C852223063A9001C12A0 /* MainTabViewController.swift */; };
 		39B7C85522306826001C12A0 /* LearnTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B7C85422306826001C12A0 /* LearnTableViewController.swift */; };
 		39B7C85722307578001C12A0 /* ARMainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B7C85622307578001C12A0 /* ARMainTableViewController.swift */; };
+		AD633E245944C5CFCEC033CF /* Pods_EcoBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FD61081E1ADED2F59C62A6 /* Pods_EcoBook.framework */; };
+		F1059573224F0AC20068BBCC /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = F1059572224F0AC10068BBCC /* tessdata */; };
+		F1059577224F0C290068BBCC /* TestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1059576224F0C290068BBCC /* TestsViewController.swift */; };
 		F11690C022417A260085D117 /* ARScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11690BF22417A260085D117 /* ARScreenViewController.swift */; };
 		F140DDEA224090C300E4144D /* DeviceInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F140DDE9224090C300E4144D /* DeviceInfoViewController.swift */; };
+		F141E6BC224961F100D6A29D /* ProfileSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F141E6BB224961F100D6A29D /* ProfileSettingsViewController.swift */; };
+		F141E6BE2249675D00D6A29D /* ProfileSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F141E6BD2249675C00D6A29D /* ProfileSettingsTableViewController.swift */; };
 		F14A0908223F47FF0008570C /* Bombilla-Filamentos-LED.png in Resources */ = {isa = PBXBuildFile; fileRef = F14A08F3223F47FC0008570C /* Bombilla-Filamentos-LED.png */; };
 		F14A0909223F47FF0008570C /* infoIconBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = F14A08F4223F47FC0008570C /* infoIconBlack.png */; };
 		F14A090A223F47FF0008570C /* 013-green-energy-2-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F14A08F5223F47FC0008570C /* 013-green-energy-2-icon.png */; };
@@ -57,6 +62,12 @@
 		F1A384FD22402D820053584F /* MexicoIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F1A384FB22402D810053584F /* MexicoIcon.png */; };
 		F1A384FF224062C20053584F /* StatisticsLocalTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A384FE224062C20053584F /* StatisticsLocalTableTableViewController.swift */; };
 		F1A3850122406EDB0053584F /* StatsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A3850022406EDB0053584F /* StatsDetailsViewController.swift */; };
+		F1B163AF2246B5B90045DB03 /* settings40.png in Resources */ = {isa = PBXBuildFile; fileRef = F1B163AC2246B5B50045DB03 /* settings40.png */; };
+		F1B163B02246B5B90045DB03 /* settings80.png in Resources */ = {isa = PBXBuildFile; fileRef = F1B163AD2246B5B70045DB03 /* settings80.png */; };
+		F1B163B12246B5B90045DB03 /* settings120.png in Resources */ = {isa = PBXBuildFile; fileRef = F1B163AE2246B5B80045DB03 /* settings120.png */; };
+		F1B163B32246B6E10045DB03 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B163B22246B6E10045DB03 /* SettingsTableViewController.swift */; };
+		F1B163B52246BA200045DB03 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B163B42246BA200045DB03 /* AboutUsViewController.swift */; };
+		F1B163B72246C1470045DB03 /* ManualReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B163B62246C1470045DB03 /* ManualReceiptViewController.swift */; };
 		F1D1FAEA223D58DB00C89252 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D1FAE9223D58DB00C89252 /* StatisticsViewController.swift */; };
 		F1D1FAF0223D71E700C89252 /* HomeLearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D1FAEF223D71E700C89252 /* HomeLearnViewController.swift */; };
 		F1D1FB06223DDBE100C89252 /* EnergyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D1FB05223DDBE100C89252 /* EnergyDetailViewController.swift */; };
@@ -79,8 +90,15 @@
 		39B7C852223063A9001C12A0 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		39B7C85422306826001C12A0 /* LearnTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnTableViewController.swift; sourceTree = "<group>"; };
 		39B7C85622307578001C12A0 /* ARMainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARMainTableViewController.swift; sourceTree = "<group>"; };
+		49FD61081E1ADED2F59C62A6 /* Pods_EcoBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EcoBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B083371947BDDD685794FFCD /* Pods-EcoBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcoBook.release.xcconfig"; path = "Target Support Files/Pods-EcoBook/Pods-EcoBook.release.xcconfig"; sourceTree = "<group>"; };
+		DA84A8E82DDE8033F044590F /* Pods-EcoBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcoBook.debug.xcconfig"; path = "Target Support Files/Pods-EcoBook/Pods-EcoBook.debug.xcconfig"; sourceTree = "<group>"; };
+		F1059572224F0AC10068BBCC /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
+		F1059576224F0C290068BBCC /* TestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsViewController.swift; sourceTree = "<group>"; };
 		F11690BF22417A260085D117 /* ARScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARScreenViewController.swift; sourceTree = "<group>"; };
 		F140DDE9224090C300E4144D /* DeviceInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoViewController.swift; sourceTree = "<group>"; };
+		F141E6BB224961F100D6A29D /* ProfileSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewController.swift; sourceTree = "<group>"; };
+		F141E6BD2249675C00D6A29D /* ProfileSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsTableViewController.swift; sourceTree = "<group>"; };
 		F14A08F3223F47FC0008570C /* Bombilla-Filamentos-LED.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bombilla-Filamentos-LED.png"; sourceTree = "<group>"; };
 		F14A08F4223F47FC0008570C /* infoIconBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infoIconBlack.png; sourceTree = "<group>"; };
 		F14A08F5223F47FC0008570C /* 013-green-energy-2-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "013-green-energy-2-icon.png"; sourceTree = "<group>"; };
@@ -120,6 +138,12 @@
 		F1A384FB22402D810053584F /* MexicoIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MexicoIcon.png; sourceTree = "<group>"; };
 		F1A384FE224062C20053584F /* StatisticsLocalTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsLocalTableTableViewController.swift; sourceTree = "<group>"; };
 		F1A3850022406EDB0053584F /* StatsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsDetailsViewController.swift; sourceTree = "<group>"; };
+		F1B163AC2246B5B50045DB03 /* settings40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings40.png; sourceTree = "<group>"; };
+		F1B163AD2246B5B70045DB03 /* settings80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings80.png; sourceTree = "<group>"; };
+		F1B163AE2246B5B80045DB03 /* settings120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings120.png; sourceTree = "<group>"; };
+		F1B163B22246B6E10045DB03 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		F1B163B42246BA200045DB03 /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		F1B163B62246C1470045DB03 /* ManualReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualReceiptViewController.swift; sourceTree = "<group>"; };
 		F1D1FAE9223D58DB00C89252 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		F1D1FAEF223D71E700C89252 /* HomeLearnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLearnViewController.swift; sourceTree = "<group>"; };
 		F1D1FB05223DDBE100C89252 /* EnergyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyDetailViewController.swift; sourceTree = "<group>"; };
@@ -135,17 +159,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD633E245944C5CFCEC033CF /* Pods_EcoBook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03BB7662B9ECFB824E620CBD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				49FD61081E1ADED2F59C62A6 /* Pods_EcoBook.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		39B7C8322230587D001C12A0 = {
 			isa = PBXGroup;
 			children = (
 				39B7C83D2230587D001C12A0 /* ProyectoEnergias */,
 				39B7C83C2230587D001C12A0 /* Products */,
+				6BE11A924FF1247AE7A2D5AC /* Pods */,
+				03BB7662B9ECFB824E620CBD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -160,6 +195,7 @@
 		39B7C83D2230587D001C12A0 /* ProyectoEnergias */ = {
 			isa = PBXGroup;
 			children = (
+				F1059572224F0AC10068BBCC /* tessdata */,
 				F1529C642242C89B009AE554 /* panelSolar.png */,
 				F1529C5E2242AE71009AE554 /* CameraShowViewController.swift */,
 				F14A0921223F6D1F0008570C /* graph.png */,
@@ -170,6 +206,7 @@
 				39B7C8402230587D001C12A0 /* FirstViewController.swift */,
 				39B7C8422230587D001C12A0 /* SecondViewController.swift */,
 				39B7C8442230587D001C12A0 /* Main.storyboard */,
+				F1B163B62246C1470045DB03 /* ManualReceiptViewController.swift */,
 				F1529C56224199D7009AE554 /* MapViewController.swift */,
 				F1A384FE224062C20053584F /* StatisticsLocalTableTableViewController.swift */,
 				F1A384F822402C3E0053584F /* HomeStatisticsViewController.swift */,
@@ -193,13 +230,30 @@
 				F140DDE9224090C300E4144D /* DeviceInfoViewController.swift */,
 				F11690BF22417A260085D117 /* ARScreenViewController.swift */,
 				F1529C602242C66D009AE554 /* ArScreenPanelsViewController.swift */,
+				F1B163B22246B6E10045DB03 /* SettingsTableViewController.swift */,
+				F1B163B42246BA200045DB03 /* AboutUsViewController.swift */,
+				F141E6BB224961F100D6A29D /* ProfileSettingsViewController.swift */,
+				F141E6BD2249675C00D6A29D /* ProfileSettingsTableViewController.swift */,
+				F1059576224F0C290068BBCC /* TestsViewController.swift */,
 			);
 			path = ProyectoEnergias;
+			sourceTree = "<group>";
+		};
+		6BE11A924FF1247AE7A2D5AC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DA84A8E82DDE8033F044590F /* Pods-EcoBook.debug.xcconfig */,
+				B083371947BDDD685794FFCD /* Pods-EcoBook.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		F1E9251E223C869D0011EBDB /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				F1B163AC2246B5B50045DB03 /* settings40.png */,
+				F1B163AD2246B5B70045DB03 /* settings80.png */,
+				F1B163AE2246B5B80045DB03 /* settings120.png */,
 				F1F46731224351F600602E45 /* IconIOS */,
 				F14A08F8223F47FC0008570C /* solar-panels.png */,
 				F1529C5A2242A1DF009AE554 /* aboutUs40.png */,
@@ -238,9 +292,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 39B7C84F2230587F001C12A0 /* Build configuration list for PBXNativeTarget "EcoBook" */;
 			buildPhases = (
+				A9C1254024E1398AF968D647 /* [CP] Check Pods Manifest.lock */,
 				39B7C8372230587D001C12A0 /* Sources */,
 				39B7C8382230587D001C12A0 /* Frameworks */,
 				39B7C8392230587D001C12A0 /* Resources */,
+				691F83C84C46CA2204DE1C1D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -296,11 +352,13 @@
 				F14A090E223F47FF0008570C /* solarPaneliconBlue.png in Resources */,
 				F14A090D223F47FF0008570C /* solar-panels.png in Resources */,
 				F14A091B223F47FF0008570C /* recibo.jpg in Resources */,
+				39B7C8462230587D001C12A0 /* Main.storyboard in Resources */,
 				F1529C652242C89C009AE554 /* panelSolar.png in Resources */,
 				F14A0917223F47FF0008570C /* bulbIcon.png in Resources */,
 				F14A0912223F47FF0008570C /* hydroIcon.png in Resources */,
 				F1A384FC22402D820053584F /* earth-globe-world.png in Resources */,
 				F14A0916223F47FF0008570C /* light-bulb.png in Resources */,
+				F1B163AF2246B5B90045DB03 /* settings40.png in Resources */,
 				F14A0911223F47FF0008570C /* power.png in Resources */,
 				F14A0918223F47FF0008570C /* PlotMultipleTimeSeries.png in Resources */,
 				F1529C5D2242A1E0009AE554 /* aboutUs40.png in Resources */,
@@ -315,17 +373,66 @@
 				F14A091A223F47FF0008570C /* IconWind32.png in Resources */,
 				F14A0919223F47FF0008570C /* statistics.jpg in Resources */,
 				F14A0909223F47FF0008570C /* infoIconBlack.png in Resources */,
-				39B7C8462230587D001C12A0 /* Main.storyboard in Resources */,
+				F1059573224F0AC20068BBCC /* tessdata in Resources */,
 				F1529C5B2242A1E0009AE554 /* aboutUs80.png in Resources */,
 				F1F46732224351F700602E45 /* IconIOS in Resources */,
+				F1B163B12246B5B90045DB03 /* settings120.png in Resources */,
 				F14A0913223F47FF0008570C /* amazon-light-bulbs-amazon-hue-bulbs-amazon-led-light-bulbs-car-amazon-light-bulbs-uk.jpg in Resources */,
 				F14A091C223F47FF0008570C /* geoIcon.png in Resources */,
 				F14A090F223F47FF0008570C /* infoIcon.png in Resources */,
 				F14A0922223F6D240008570C /* graph.png in Resources */,
+				F1B163B02246B5B90045DB03 /* settings80.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		691F83C84C46CA2204DE1C1D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EcoBook/Pods-EcoBook-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/TesseractOCRiOS/TesseractOCR.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TesseractOCR.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EcoBook/Pods-EcoBook-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9C1254024E1398AF968D647 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EcoBook-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		39B7C8372230587D001C12A0 /* Sources */ = {
@@ -333,20 +440,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				39B7C8432230587D001C12A0 /* SecondViewController.swift in Sources */,
+				F1B163B52246BA200045DB03 /* AboutUsViewController.swift in Sources */,
 				F1D1FAF0223D71E700C89252 /* HomeLearnViewController.swift in Sources */,
 				F1529C5F2242AE71009AE554 /* CameraShowViewController.swift in Sources */,
 				F1A3850122406EDB0053584F /* StatsDetailsViewController.swift in Sources */,
 				F1D1FAEA223D58DB00C89252 /* StatisticsViewController.swift in Sources */,
 				F1E92526223CA3C00011EBDB /* MainConsumptionViewController.swift in Sources */,
 				F1E92528223CA5460011EBDB /* InfoComsumptionHelpViewController.swift in Sources */,
+				F141E6BE2249675D00D6A29D /* ProfileSettingsTableViewController.swift in Sources */,
 				39B7C85722307578001C12A0 /* ARMainTableViewController.swift in Sources */,
 				F1529C612242C66D009AE554 /* ArScreenPanelsViewController.swift in Sources */,
 				F1D1FB06223DDBE100C89252 /* EnergyDetailViewController.swift in Sources */,
 				F177A997223EC0EB00513F35 /* HomeARViewController.swift in Sources */,
 				F1529C57224199D7009AE554 /* MapViewController.swift in Sources */,
+				F141E6BC224961F100D6A29D /* ProfileSettingsViewController.swift in Sources */,
 				39B7C853223063A9001C12A0 /* MainTabViewController.swift in Sources */,
 				39B7C83F2230587D001C12A0 /* AppDelegate.swift in Sources */,
+				F1B163B32246B6E10045DB03 /* SettingsTableViewController.swift in Sources */,
 				F1A384FF224062C20053584F /* StatisticsLocalTableTableViewController.swift in Sources */,
+				F1059577224F0C290068BBCC /* TestsViewController.swift in Sources */,
 				F14A0920223F5CDD0008570C /* SolarPanelsTableViewController.swift in Sources */,
 				F14A0924223F6FED0008570C /* StatisticsTableViewController.swift in Sources */,
 				39B7C8412230587D001C12A0 /* FirstViewController.swift in Sources */,
@@ -357,6 +469,7 @@
 				F177A99D223ECA8300513F35 /* ARTableCellTableViewCell.swift in Sources */,
 				F14A091E223F49CF0008570C /* DeviceDetailTableViewController.swift in Sources */,
 				F11690C022417A260085D117 /* ARScreenViewController.swift in Sources */,
+				F1B163B72246C1470045DB03 /* ManualReceiptViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,11 +613,14 @@
 		};
 		39B7C8502230587F001C12A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA84A8E82DDE8033F044590F /* Pods-EcoBook.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9DWNU7FC3K;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ProyectoEnergias/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -518,11 +634,14 @@
 		};
 		39B7C8512230587F001C12A0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B083371947BDDD685794FFCD /* Pods-EcoBook.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9DWNU7FC3K;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ProyectoEnergias/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
