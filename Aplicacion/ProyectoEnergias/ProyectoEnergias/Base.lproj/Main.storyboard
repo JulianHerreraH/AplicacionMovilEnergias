@@ -444,62 +444,66 @@
         <scene sceneID="Kar-wf-exx">
             <objects>
                 <viewController id="NZA-T8-Rtt" userLabel="TakePhoto" customClass="CameraShowViewController" customModule="EcoBook" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hbx-OU-Z8O">
+                    <view key="view" contentMode="scaleToFill" id="j5e-ja-IPj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recibo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="JeW-3V-MJG">
-                                <rect key="frame" x="16" y="170.5" width="294" height="227"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="0.1990812059859155" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Asegúrate de únicamente haber capturado el siguiente encabezado" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbt-iG-XdM">
+                                <rect key="frame" x="16" y="34" width="288" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="receiptExample.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="1oA-BF-w05">
+                                <rect key="frame" x="40" y="114" width="240" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="227" id="Odn-Lm-mpL"/>
+                                    <constraint firstAttribute="height" constant="128" id="Tem-g0-ewU"/>
+                                    <constraint firstAttribute="width" constant="240" id="nOC-LR-AHz"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRR-cd-5Je">
-                                <rect key="frame" x="87" y="423.5" width="153" height="34"/>
-                                <color key="backgroundColor" red="0.38574052073177278" green="0.38574052073177278" blue="0.38574052073177278" alpha="0.10335057218309859" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fzT-Yv-Qf3">
+                                <rect key="frame" x="32.5" y="497" width="255" height="41"/>
+                                <color key="backgroundColor" red="0.38574052069999998" green="0.38574052069999998" blue="0.38574052069999998" alpha="0.095648107390000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="153" id="49k-w8-X33"/>
+                                    <constraint firstAttribute="height" constant="41" id="IQ7-X6-fXZ"/>
+                                    <constraint firstAttribute="width" constant="255" id="XFZ-TQ-Deg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Añadir Recibo"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQf-29-2ni">
-                                <rect key="frame" x="57" y="44" width="206" height="84.5"/>
-                                <color key="backgroundColor" red="0.38574052073177278" green="0.38574052073177278" blue="0.38574052073177278" alpha="0.095648107394366202" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="206" id="Z8h-mI-PLy"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Seleccionar Recibo"/>
+                                <state key="normal" title="Seleccionar imagen"/>
                                 <connections>
-                                    <action selector="LoadPhoto:" destination="NZA-T8-Rtt" eventType="touchUpInside" id="XFk-hQ-ovq"/>
+                                    <action selector="pickPhoto:" destination="NZA-T8-Rtt" eventType="touchUpInside" id="bb4-su-wmN"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Procura que la foto esté bien iluminada " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1KP-5n-Yzg">
+                                <rect key="frame" x="16" y="304" width="288" height="79"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="EQf-29-2ni" firstAttribute="top" secondItem="MpK-Oc-iOS" secondAttribute="top" constant="24" id="1T1-s2-3bk"/>
-                            <constraint firstItem="aRR-cd-5Je" firstAttribute="centerX" secondItem="hbx-OU-Z8O" secondAttribute="centerX" constant="3.5" id="2uz-YQ-KB5"/>
-                            <constraint firstItem="MpK-Oc-iOS" firstAttribute="trailing" secondItem="JeW-3V-MJG" secondAttribute="trailing" constant="10" id="8ud-Y9-y8I"/>
-                            <constraint firstItem="aRR-cd-5Je" firstAttribute="top" secondItem="JeW-3V-MJG" secondAttribute="bottom" constant="26" id="EXP-vH-MoG"/>
-                            <constraint firstItem="JeW-3V-MJG" firstAttribute="leading" secondItem="hbx-OU-Z8O" secondAttribute="leadingMargin" id="HKq-xY-yWT"/>
-                            <constraint firstItem="JeW-3V-MJG" firstAttribute="centerY" secondItem="hbx-OU-Z8O" secondAttribute="centerY" id="HcZ-3D-Py6"/>
-                            <constraint firstItem="EQf-29-2ni" firstAttribute="leading" secondItem="MpK-Oc-iOS" secondAttribute="leading" constant="57" id="RF4-WI-rHe"/>
-                            <constraint firstItem="JeW-3V-MJG" firstAttribute="top" secondItem="EQf-29-2ni" secondAttribute="bottom" constant="42" id="Zat-1b-3Mh"/>
-                            <constraint firstItem="EQf-29-2ni" firstAttribute="centerX" secondItem="hbx-OU-Z8O" secondAttribute="centerX" id="t1a-NU-e7Z"/>
-                            <constraint firstItem="aRR-cd-5Je" firstAttribute="leading" secondItem="MpK-Oc-iOS" secondAttribute="leading" constant="87" id="u6y-CQ-L1N"/>
+                            <constraint firstItem="nbt-iG-XdM" firstAttribute="top" secondItem="BaB-MM-BEk" secondAttribute="top" constant="14" id="CXF-pk-Qj9"/>
+                            <constraint firstItem="fzT-Yv-Qf3" firstAttribute="centerX" secondItem="j5e-ja-IPj" secondAttribute="centerX" id="DZn-22-4p5"/>
+                            <constraint firstItem="fzT-Yv-Qf3" firstAttribute="centerX" secondItem="nbt-iG-XdM" secondAttribute="centerX" id="ESh-tr-jil"/>
+                            <constraint firstItem="fzT-Yv-Qf3" firstAttribute="top" secondItem="1KP-5n-Yzg" secondAttribute="bottom" constant="21" id="UYi-CK-kmt"/>
+                            <constraint firstItem="fzT-Yv-Qf3" firstAttribute="centerX" secondItem="1KP-5n-Yzg" secondAttribute="centerX" id="XLf-eH-UoQ"/>
+                            <constraint firstItem="nbt-iG-XdM" firstAttribute="leading" secondItem="j5e-ja-IPj" secondAttribute="leadingMargin" id="cvH-Xa-zrm"/>
+                            <constraint firstItem="BaB-MM-BEk" firstAttribute="bottom" secondItem="fzT-Yv-Qf3" secondAttribute="bottom" constant="30" id="jBS-Rw-0mY"/>
+                            <constraint firstItem="fzT-Yv-Qf3" firstAttribute="centerX" secondItem="1oA-BF-w05" secondAttribute="centerX" id="nxD-ed-VVI"/>
+                            <constraint firstItem="1oA-BF-w05" firstAttribute="top" secondItem="nbt-iG-XdM" secondAttribute="bottom" constant="8" symbolic="YES" id="tts-QF-exd"/>
+                            <constraint firstItem="nbt-iG-XdM" firstAttribute="leading" secondItem="1KP-5n-Yzg" secondAttribute="leading" id="vOy-u1-pXN"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="MpK-Oc-iOS"/>
+                        <viewLayoutGuide key="safeArea" id="BaB-MM-BEk"/>
                     </view>
                     <connections>
-                        <outlet property="SeleccionarRecibo" destination="EQf-29-2ni" id="H4M-91-IXM"/>
-                        <outlet property="addRecibo" destination="aRR-cd-5Je" id="0d6-yh-0VI"/>
+                        <outlet property="addRecibo" destination="fzT-Yv-Qf3" id="L2J-eo-wwh"/>
+                        <outlet property="imageView" destination="1oA-BF-w05" id="5AD-Np-jq1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y8N-Dn-w2U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5535" y="3206"/>
+            <point key="canvasLocation" x="-3804.375" y="4000.3521126760565"/>
         </scene>
         <!--ManualReceiptEntries-->
         <scene sceneID="tv7-hf-xWS">
@@ -510,7 +514,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZV4-2w-t6j">
-                                <rect key="frame" x="0.0" y="64" width="320" height="880"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="880"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1hB-OT-npY">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="880"/>
@@ -661,7 +665,7 @@
                                         </state>
                                         <connections>
                                             <action selector="newBillButtonAction:" destination="gKG-lY-Mca" eventType="touchUpInside" id="E08-5R-wP6"/>
-                                            <segue destination="0AF-ZL-cfP" kind="show" id="bfE-OT-Dqu"/>
+                                            <segue destination="0AF-ZL-cfP" kind="show" id="esD-Th-TUj"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recibo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="YDW-Y2-gYy">
@@ -754,19 +758,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="En esta sección podrás ver información personal sobre tu consumo energético" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQB-89-TGa">
-                                <rect key="frame" x="16" y="135" width="288" height="100"/>
+                                <rect key="frame" x="16" y="91" width="288" height="237"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xIu-35-ikV">
-                                <rect key="frame" x="35" y="115" width="250" height="1"/>
+                                <rect key="frame" x="35" y="71" width="250" height="1"/>
                                 <color key="backgroundColor" red="0.41175347800000001" green="1" blue="0.40316574119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.10000000000000001"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Estadísticas" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cey-nd-3AZ">
-                                <rect key="frame" x="95" y="73" width="131" height="32"/>
+                                <rect key="frame" x="95" y="29" width="131" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="lmo-MQ-lUG"/>
                                 </constraints>
@@ -775,7 +779,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYZ-O3-leo">
-                                <rect key="frame" x="32.5" y="296" width="255" height="43"/>
+                                <rect key="frame" x="32.5" y="389" width="255" height="43"/>
                                 <color key="backgroundColor" red="0.38574052069999998" green="0.38574052069999998" blue="0.38574052069999998" alpha="0.1033505722" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="Swp-Mu-Z5E"/>
@@ -785,7 +789,7 @@
                                 <state key="normal" title="Ver mi consumo por periodo"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLh-sY-iuJ">
-                                <rect key="frame" x="32.5" y="369" width="255" height="41"/>
+                                <rect key="frame" x="32.5" y="462" width="255" height="41"/>
                                 <color key="backgroundColor" red="0.38574052069999998" green="0.38574052069999998" blue="0.38574052069999998" alpha="0.095648107390000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="2YQ-9q-H6H"/>
@@ -822,7 +826,7 @@
                         <outlet property="consumptionPeriodButton" destination="yYZ-O3-leo" id="c7x-qX-ign"/>
                         <outlet property="regionButton" destination="RLh-sY-iuJ" id="8Vi-Aa-dUl"/>
                         <outlet property="statisticsFirstLabel" destination="FQB-89-TGa" id="RvL-3V-eYk"/>
-                        <segue destination="q0v-nO-ULc" kind="show" identifier="goToBillSegue" id="beq-Dm-JcJ"/>
+                        <segue destination="0AF-ZL-cfP" kind="show" identifier="goToBillSegue" id="QDT-Sn-gjH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LGw-5V-CiK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2071,71 +2075,58 @@
         <!--TakePhoto-->
         <scene sceneID="P9k-PQ-lIM">
             <objects>
-                <viewController id="0AF-ZL-cfP" userLabel="TakePhoto" customClass="CameraShowViewController" customModule="EcoBook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0AF-ZL-cfP" userLabel="TakePhoto" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e9s-47-yDO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Mk-6I-VWO">
-                                <rect key="frame" x="33" y="239" width="255" height="43"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Mk-6I-VWO">
+                                <rect key="frame" x="32" y="195" width="255" height="43"/>
                                 <color key="backgroundColor" red="0.38574052069999998" green="0.38574052069999998" blue="0.38574052069999998" alpha="0.1033505722" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="Qbm-Vc-5Bz"/>
                                     <constraint firstAttribute="width" constant="255" id="ZuS-LT-kci"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Añadir manualmente"/>
                                 <connections>
-                                    <segue destination="q0v-nO-ULc" kind="show" identifier="goToBillSegue" id="mWn-zi-uep"/>
+                                    <segue destination="q0v-nO-ULc" kind="show" id="k3v-TM-BhZ"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tfO-VU-UA7">
-                                <rect key="frame" x="16" y="79" width="288" height="152"/>
+                                <rect key="frame" x="16" y="35" width="288" height="152"/>
                                 <string key="text">Puedes agregar la información manualmente o tomar una foto del recibo y nosotros intentaremos extraer la información de la imagen. </string>
                                 <color key="textColor" red="0.1931333757" green="0.1931333757" blue="0.1931333757" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FxJ-EW-Byy">
-                                <rect key="frame" x="32.5" y="312" width="255" height="41"/>
+                                <rect key="frame" x="32.5" y="346" width="255" height="43"/>
                                 <color key="backgroundColor" red="0.38574052069999998" green="0.38574052069999998" blue="0.38574052069999998" alpha="0.095648107390000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="255" id="EZM-c0-OrB"/>
-                                    <constraint firstAttribute="height" constant="41" id="hTJ-m9-Hi3"/>
+                                    <constraint firstAttribute="height" constant="43" id="hTJ-m9-Hi3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Usar imagen"/>
                                 <connections>
-                                    <action selector="pickPhoto:" destination="0AF-ZL-cfP" eventType="touchUpInside" id="2RL-4M-aDb"/>
+                                    <segue destination="NZA-T8-Rtt" kind="show" id="97M-t7-Kpq"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vqZ-Dt-5di">
-                                <rect key="frame" x="110" y="380" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="BDc-fA-wXQ"/>
-                                    <constraint firstAttribute="width" constant="100" id="c5M-3r-RFL"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="4Mk-6I-VWO" firstAttribute="top" secondItem="oef-Uo-qWo" secondAttribute="top" constant="175" id="7MJ-Qx-W8M"/>
                             <constraint firstItem="oef-Uo-qWo" firstAttribute="trailing" secondItem="tfO-VU-UA7" secondAttribute="trailing" constant="16" id="HjS-oT-CCc"/>
-                            <constraint firstItem="4Mk-6I-VWO" firstAttribute="centerX" secondItem="e9s-47-yDO" secondAttribute="centerX" constant="0.5" id="VgD-dP-GLY"/>
+                            <constraint firstItem="4Mk-6I-VWO" firstAttribute="centerX" secondItem="e9s-47-yDO" secondAttribute="centerX" constant="-0.5" id="VgD-dP-GLY"/>
                             <constraint firstItem="tfO-VU-UA7" firstAttribute="top" secondItem="oef-Uo-qWo" secondAttribute="top" constant="15" id="XtM-bB-6Yc"/>
                             <constraint firstItem="4Mk-6I-VWO" firstAttribute="top" secondItem="tfO-VU-UA7" secondAttribute="bottom" constant="8" symbolic="YES" id="au8-50-HC7"/>
-                            <constraint firstItem="FxJ-EW-Byy" firstAttribute="top" secondItem="oef-Uo-qWo" secondAttribute="top" constant="248" id="dUp-FT-EyA"/>
-                            <constraint firstItem="vqZ-Dt-5di" firstAttribute="centerX" secondItem="FxJ-EW-Byy" secondAttribute="centerX" id="lvn-AD-kAW"/>
+                            <constraint firstItem="FxJ-EW-Byy" firstAttribute="top" secondItem="oef-Uo-qWo" secondAttribute="top" constant="326" id="dUp-FT-EyA"/>
                             <constraint firstItem="FxJ-EW-Byy" firstAttribute="centerX" secondItem="e9s-47-yDO" secondAttribute="centerX" id="mhO-bV-Kps"/>
                             <constraint firstItem="tfO-VU-UA7" firstAttribute="leading" secondItem="oef-Uo-qWo" secondAttribute="leading" constant="16" id="v9v-ga-mBo"/>
-                            <constraint firstItem="vqZ-Dt-5di" firstAttribute="top" secondItem="FxJ-EW-Byy" secondAttribute="bottom" constant="27" id="zET-Es-85X"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oef-Uo-qWo"/>
                     </view>
-                    <connections>
-                        <outlet property="SeleccionarRecibo" destination="FxJ-EW-Byy" id="RHN-cL-alx"/>
-                        <outlet property="addRecibo" destination="4Mk-6I-VWO" id="iGd-hW-Xvx"/>
-                        <outlet property="imageView" destination="vqZ-Dt-5di" id="1GF-LN-FYs"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="65q-P3-c6Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2469,6 +2460,7 @@
         <image name="graph.png" width="512" height="512"/>
         <image name="learn_icon" width="40" height="40"/>
         <image name="light-bulb.png" width="512" height="512"/>
+        <image name="receiptExample.jpg" width="609" height="369"/>
         <image name="recibo.jpg" width="1000" height="400"/>
         <image name="settings40.png" width="40" height="40"/>
         <image name="solar-panels.png" width="512" height="512"/>
@@ -2476,6 +2468,7 @@
         <image name="solarPaneliconBlue.png" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="QDT-Sn-gjH"/>
         <segue reference="r6L-MR-mPp"/>
         <segue reference="AGs-Xh-UoQ"/>
         <segue reference="EcI-5w-xUg"/>
@@ -2484,7 +2477,6 @@
         <segue reference="I1X-2q-mDe"/>
         <segue reference="ufF-W2-HYE"/>
         <segue reference="R7k-Cy-Ty3"/>
-        <segue reference="mWn-zi-uep"/>
         <segue reference="kIP-kE-dRi"/>
     </inferredMetricsTieBreakers>
 </document>

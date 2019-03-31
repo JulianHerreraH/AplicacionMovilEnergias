@@ -3,8 +3,8 @@
 #pod 'TesseractOCRiOS', '4.0.0'
 pod 'TesseractOCRiOS', :git => 'git://github.com/parallaxe/Tesseract-OCR-iOS.git', :branch => 'macos-support'
 
-
 target 'EcoBook' do
+    pod 'WeScan', '>= 0.9'
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 

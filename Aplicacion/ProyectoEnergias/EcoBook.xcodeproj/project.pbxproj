@@ -76,6 +76,7 @@
 		F1E92528223CA5460011EBDB /* InfoComsumptionHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E92527223CA5460011EBDB /* InfoComsumptionHelpViewController.swift */; };
 		F1F46732224351F700602E45 /* IconIOS in Resources */ = {isa = PBXBuildFile; fileRef = F1F46731224351F600602E45 /* IconIOS */; };
 		F1F46734224356A500602E45 /* bookLight-3.png in Resources */ = {isa = PBXBuildFile; fileRef = F1F46733224356A400602E45 /* bookLight-3.png */; };
+		F1FFA2F6224FFE3A00B5F027 /* receiptExample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F1FFA2F5224FFE3900B5F027 /* receiptExample.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -152,6 +153,7 @@
 		F1E92527223CA5460011EBDB /* InfoComsumptionHelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoComsumptionHelpViewController.swift; sourceTree = "<group>"; };
 		F1F46731224351F600602E45 /* IconIOS */ = {isa = PBXFileReference; lastKnownFileType = folder; path = IconIOS; sourceTree = "<group>"; };
 		F1F46733224356A400602E45 /* bookLight-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bookLight-3.png"; sourceTree = "<group>"; };
+		F1FFA2F5224FFE3900B5F027 /* receiptExample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = receiptExample.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +253,7 @@
 		F1E9251E223C869D0011EBDB /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				F1FFA2F5224FFE3900B5F027 /* receiptExample.jpg */,
 				F1B163AC2246B5B50045DB03 /* settings40.png */,
 				F1B163AD2246B5B70045DB03 /* settings80.png */,
 				F1B163AE2246B5B80045DB03 /* settings120.png */,
@@ -382,6 +385,7 @@
 				F14A090F223F47FF0008570C /* infoIcon.png in Resources */,
 				F14A0922223F6D240008570C /* graph.png in Resources */,
 				F1B163B02246B5B90045DB03 /* settings80.png in Resources */,
+				F1FFA2F6224FFE3A00B5F027 /* receiptExample.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,12 +402,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-EcoBook/Pods-EcoBook-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/TesseractOCRiOS/TesseractOCR.framework",
+				"${BUILT_PRODUCTS_DIR}/WeScan/WeScan.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TesseractOCR.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WeScan.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

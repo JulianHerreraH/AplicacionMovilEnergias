@@ -1,8 +1,14 @@
 PODS:
   - TesseractOCRiOS (4.0.0)
+  - WeScan (1.0.0)
 
 DEPENDENCIES:
   - TesseractOCRiOS (from `git://github.com/parallaxe/Tesseract-OCR-iOS.git`, branch `macos-support`)
+  - WeScan (>= 0.9)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - WeScan
 
 EXTERNAL SOURCES:
   TesseractOCRiOS:
@@ -16,7 +22,8 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   TesseractOCRiOS: f51bbcd27d84b9ac59950790413a7e4219e84483
+  WeScan: a049a4a2a0eb1c4560cf649ebd933d07b0d9ef4c
 
-PODFILE CHECKSUM: 137d407e35c7a6fe5580441fc7ffd800efb1a494
+PODFILE CHECKSUM: 855d60d63bd868faa440613ec785c17774094259
 
 COCOAPODS: 1.6.1
