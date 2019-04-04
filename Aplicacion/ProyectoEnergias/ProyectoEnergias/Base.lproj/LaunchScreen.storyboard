@@ -14,12 +14,12 @@
         <scene sceneID="EHf-IW-A2E">
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="Ze5-6b-2t3">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bookLight-3.png" translatesAutoresizingMaskIntoConstraints="NO" id="9s0-Ht-eJj">
-                                <rect key="frame" x="62" y="208" width="250" height="250"/>
+                                <rect key="frame" x="62.5" y="208.5" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="N2t-ZM-Ego"/>
                                     <constraint firstAttribute="width" constant="250" id="ebU-qa-8BJ"/>
@@ -29,9 +29,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="9s0-Ht-eJj" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="0AJ-5p-Udn"/>
-                            <constraint firstItem="9s0-Ht-eJj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="188" id="EKO-rB-jVT"/>
                             <constraint firstItem="9s0-Ht-eJj" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="MuZ-IK-XQr"/>
-                            <constraint firstItem="9s0-Ht-eJj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="62" id="Z2R-Ml-Xim"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

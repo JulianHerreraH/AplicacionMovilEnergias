@@ -10,6 +10,32 @@ import UIKit
 
 import TesseractOCR
 
+var vSpinner : UIView?
+
+extension UIViewController {
+    func showSpinner(onView : UIView) {
+        let spinnerView = UIView.init(frame: onView.bounds)
+        spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+        let ai = UIActivityIndicatorView.init(style: .whiteLarge)
+        ai.startAnimating()
+        ai.center = spinnerView.center
+        
+        DispatchQueue.main.async {
+            spinnerView.addSubview(ai)
+            onView.addSubview(spinnerView)
+        }
+        
+        vSpinner = spinnerView
+    }
+    
+    func removeSpinner() {
+        DispatchQueue.main.async {
+            vSpinner?.removeFromSuperview()
+            vSpinner = nil
+        }
+    }
+}
+
 extension String {
     func levenshteinDistanceScore(to string: String, ignoreCase: Bool = true, trimWhiteSpacesAndNewLines: Bool = true) -> Double {
         
@@ -49,8 +75,10 @@ extension String {
 
 class CameraShowViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, G8TesseractDelegate {
     var recognizedText = ""
-    let tarifas = ["1", "1A", "1B", "1C", "1D", "1E", "1F"];
+    let tarifas = ["1", "1a", "dac", "1b", "1c", "1d", "1e", "1f"];
     let meses = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"]
+    
+
     @IBOutlet weak var imageView: UIImageView!
     let tesseract:G8Tesseract = G8Tesseract(language: "spa")
     @IBOutlet weak var addRecibo: UIButton!
@@ -227,6 +255,7 @@ class CameraShowViewController: UIViewController, UIImagePickerControllerDelegat
             }
             let regex = try? NSRegularExpression(pattern: "#[a-z0-9]+", options: .caseInsensitive)
             let results = regex!.matches(in: recognizedText, range: NSRange(recognizedText.startIndex..., in: recognizedText))
+            performSegue(withIdentifier: "goToManualReceipt", sender: Any!.self)
         }
     }
     // MARK: - Navigation
@@ -242,7 +271,7 @@ class CameraShowViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func readAndUpdateKWH( text: String){
-        if(recognizedText.contains("(ah)")){
+        if(recognizedText.contains("(kWh)")){
             var splittedText = text.components(separatedBy: "(ah)")
             var costTxt = splittedText[1]
             var counter:Int = 0
@@ -282,18 +311,33 @@ class CameraShowViewController: UIViewController, UIImagePickerControllerDelegat
             }
             counter = counter + 1
         }
+        let dat = tariffType
+        var maxScore:Double = 0
+        var index = 0
+        var forloopcounter = 0
+        
+        for tarifa in tarifas {
+            if(dat.levenshteinDistanceScore(to: tarifa) > maxScore){
+                maxScore = dat.levenshteinDistanceScore(to: tarifa)
+                index = forloopcounter
+            }
+            forloopcounter = forloopcounter + 1
+        }
+        
         print("******")
         print("TARIFA")
-        billData["Tarifa"] = tariffType
+        print("Closes Match Tarifa")
+        print(tarifas[index])
+
+        billData["Tarifa"] = tarifas[index]
         print(billData["Tarifa"]!)
         print("******")
         
     }
     func readAndUpdatePeriods( text: String){
         var splittedText = text.components(separatedBy: "facturado:")
-        var periods = splittedText[1]
+        let periods = splittedText[1]
         var bothPeriods = ""
-        
         var counter:Int = 0
         for character in periods{
             if(counter == 15 && String(character) == "9"){
@@ -324,6 +368,7 @@ class CameraShowViewController: UIViewController, UIImagePickerControllerDelegat
                 }
                 billData["PeriodoFinal"] = endPeriod.trimmingCharacters(in: .whitespacesAndNewlines)
                 print("Closest Match:")
+                billData["PeriodoFinal"] = meses[index]
                 print(meses[index])
             }
             else{
@@ -332,7 +377,7 @@ class CameraShowViewController: UIViewController, UIImagePickerControllerDelegat
         }
        
         if(periodsArray[0].count > 1){
-            var dat = initialPeriod.trimmingCharacters(in: .whitespacesAndNewlines)
+            let dat = initialPeriod.trimmingCharacters(in: .whitespacesAndNewlines)
             var maxScore:Double = 0
             var index = 0
             var forloopcounter = 0
@@ -345,6 +390,7 @@ class CameraShowViewController: UIViewController, UIImagePickerControllerDelegat
             }
             billData["PeriodoInicial"] = initialPeriod.trimmingCharacters(in: .whitespacesAndNewlines)
             print("Closest Match:")
+            billData["PeriodoInicial"] = meses[index]
             print(meses[index])
         }
         else{
@@ -362,9 +408,14 @@ class CameraShowViewController: UIViewController, UIImagePickerControllerDelegat
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        /*
+        let next = segue.destination as! ManualReceiptViewController
+        next.receivedBillData = self.billData
+         */
         let backItem = UIBarButtonItem()
         backItem.title = "Regresar"
         navigationItem.backBarButtonItem = backItem
+        
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }

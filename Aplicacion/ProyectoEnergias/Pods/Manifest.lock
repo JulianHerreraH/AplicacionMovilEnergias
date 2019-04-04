@@ -1,13 +1,18 @@
 PODS:
+  - Charts (3.2.2):
+    - Charts/Core (= 3.2.2)
+  - Charts/Core (3.2.2)
   - TesseractOCRiOS (4.0.0)
   - WeScan (1.0.0)
 
 DEPENDENCIES:
+  - Charts
   - TesseractOCRiOS (from `git://github.com/parallaxe/Tesseract-OCR-iOS.git`, branch `macos-support`)
   - WeScan (>= 0.9)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Charts
     - WeScan
 
 EXTERNAL SOURCES:
@@ -21,9 +26,10 @@ CHECKOUT OPTIONS:
     :git: git://github.com/parallaxe/Tesseract-OCR-iOS.git
 
 SPEC CHECKSUMS:
+  Charts: f69cf0518b6d1d62608ca504248f1bbe0b6ae77e
   TesseractOCRiOS: f51bbcd27d84b9ac59950790413a7e4219e84483
   WeScan: a049a4a2a0eb1c4560cf649ebd933d07b0d9ef4c
 
-PODFILE CHECKSUM: 855d60d63bd868faa440613ec785c17774094259
+PODFILE CHECKSUM: 0674f242e1f2f8e9836a605673a18169ca4dcdec
 
 COCOAPODS: 1.6.1

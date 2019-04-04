@@ -20,6 +20,7 @@
 		F1059573224F0AC20068BBCC /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = F1059572224F0AC10068BBCC /* tessdata */; };
 		F1059577224F0C290068BBCC /* TestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1059576224F0C290068BBCC /* TestsViewController.swift */; };
 		F11690C022417A260085D117 /* ARScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11690BF22417A260085D117 /* ARScreenViewController.swift */; };
+		F137C826225671DC002A0834 /* PhotoScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F137C825225671DC002A0834 /* PhotoScanViewController.swift */; };
 		F140DDEA224090C300E4144D /* DeviceInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F140DDE9224090C300E4144D /* DeviceInfoViewController.swift */; };
 		F141E6BC224961F100D6A29D /* ProfileSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F141E6BB224961F100D6A29D /* ProfileSettingsViewController.swift */; };
 		F141E6BE2249675D00D6A29D /* ProfileSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F141E6BD2249675C00D6A29D /* ProfileSettingsTableViewController.swift */; };
@@ -77,6 +78,7 @@
 		F1F46732224351F700602E45 /* IconIOS in Resources */ = {isa = PBXBuildFile; fileRef = F1F46731224351F600602E45 /* IconIOS */; };
 		F1F46734224356A500602E45 /* bookLight-3.png in Resources */ = {isa = PBXBuildFile; fileRef = F1F46733224356A400602E45 /* bookLight-3.png */; };
 		F1FFA2F6224FFE3A00B5F027 /* receiptExample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F1FFA2F5224FFE3900B5F027 /* receiptExample.jpg */; };
+		F1FFA2FA2252A03C00B5F027 /* PeriodConsumptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FFA2F92252A03C00B5F027 /* PeriodConsumptionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +99,7 @@
 		F1059572224F0AC10068BBCC /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		F1059576224F0C290068BBCC /* TestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsViewController.swift; sourceTree = "<group>"; };
 		F11690BF22417A260085D117 /* ARScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARScreenViewController.swift; sourceTree = "<group>"; };
+		F137C825225671DC002A0834 /* PhotoScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoScanViewController.swift; sourceTree = "<group>"; };
 		F140DDE9224090C300E4144D /* DeviceInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoViewController.swift; sourceTree = "<group>"; };
 		F141E6BB224961F100D6A29D /* ProfileSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewController.swift; sourceTree = "<group>"; };
 		F141E6BD2249675C00D6A29D /* ProfileSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +157,7 @@
 		F1F46731224351F600602E45 /* IconIOS */ = {isa = PBXFileReference; lastKnownFileType = folder; path = IconIOS; sourceTree = "<group>"; };
 		F1F46733224356A400602E45 /* bookLight-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bookLight-3.png"; sourceTree = "<group>"; };
 		F1FFA2F5224FFE3900B5F027 /* receiptExample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = receiptExample.jpg; sourceTree = "<group>"; };
+		F1FFA2F92252A03C00B5F027 /* PeriodConsumptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodConsumptionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +212,7 @@
 				39B7C8402230587D001C12A0 /* FirstViewController.swift */,
 				39B7C8422230587D001C12A0 /* SecondViewController.swift */,
 				39B7C8442230587D001C12A0 /* Main.storyboard */,
+				F137C825225671DC002A0834 /* PhotoScanViewController.swift */,
 				F1B163B62246C1470045DB03 /* ManualReceiptViewController.swift */,
 				F1529C56224199D7009AE554 /* MapViewController.swift */,
 				F1A384FE224062C20053584F /* StatisticsLocalTableTableViewController.swift */,
@@ -237,6 +242,7 @@
 				F141E6BB224961F100D6A29D /* ProfileSettingsViewController.swift */,
 				F141E6BD2249675C00D6A29D /* ProfileSettingsTableViewController.swift */,
 				F1059576224F0C290068BBCC /* TestsViewController.swift */,
+				F1FFA2F92252A03C00B5F027 /* PeriodConsumptionViewController.swift */,
 			);
 			path = ProyectoEnergias;
 			sourceTree = "<group>";
@@ -401,6 +407,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-EcoBook/Pods-EcoBook-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/TesseractOCRiOS/TesseractOCR.framework",
 				"${BUILT_PRODUCTS_DIR}/WeScan/WeScan.framework",
 			);
@@ -408,6 +415,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TesseractOCR.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WeScan.framework",
 			);
@@ -446,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39B7C8432230587D001C12A0 /* SecondViewController.swift in Sources */,
+				F1FFA2FA2252A03C00B5F027 /* PeriodConsumptionViewController.swift in Sources */,
 				F1B163B52246BA200045DB03 /* AboutUsViewController.swift in Sources */,
 				F1D1FAF0223D71E700C89252 /* HomeLearnViewController.swift in Sources */,
 				F1529C5F2242AE71009AE554 /* CameraShowViewController.swift in Sources */,
@@ -462,6 +471,7 @@
 				F141E6BC224961F100D6A29D /* ProfileSettingsViewController.swift in Sources */,
 				39B7C853223063A9001C12A0 /* MainTabViewController.swift in Sources */,
 				39B7C83F2230587D001C12A0 /* AppDelegate.swift in Sources */,
+				F137C826225671DC002A0834 /* PhotoScanViewController.swift in Sources */,
 				F1B163B32246B6E10045DB03 /* SettingsTableViewController.swift in Sources */,
 				F1A384FF224062C20053584F /* StatisticsLocalTableTableViewController.swift in Sources */,
 				F1059577224F0C290068BBCC /* TestsViewController.swift in Sources */,
