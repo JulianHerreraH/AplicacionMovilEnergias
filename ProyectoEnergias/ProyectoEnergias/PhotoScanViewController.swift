@@ -13,6 +13,7 @@ import TesseractOCR
 
 class PhotoScanViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, G8TesseractDelegate, ImageScannerControllerDelegate {
     
+    @IBOutlet weak var waitingLabel: UILabel!
     var billData:[String:String] = ["CostoTotal": "?",
                                     "PeriodoInicial": "?",
                                     "PeriodoFinal": "?",
@@ -246,36 +247,40 @@ class PhotoScanViewController: UIViewController, UIImagePickerControllerDelegate
         }*/
         self.showSpinner(onView: self.view)
         var img = results.scannedImage
-        if(results.enhancedImage != nil){
+        waitingLabel.text = "Analizando imagen, favor de esperar"
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {  if(results.enhancedImage != nil){
             img = results.enhancedImage!
+            }
+            let context = CIContext(options: nil)
+            let currentFilter = CIFilter(name: "CIPhotoEffectNoir")
+            currentFilter!.setValue(CIImage(image: img), forKey: kCIInputImageKey)
+            let output = currentFilter!.outputImage
+            let cgimg = context.createCGImage(output!,from: output!.extent)
+            let processedImage = UIImage(cgImage: cgimg!)
+            img  = processedImage
+            
+            let contextSharpen = CIContext(options: nil)
+            let parameters = [
+                "inputSharpness": NSNumber(value: 1.0)
+            ]
+            let currentFilterSharp = CIFilter(name: "CISharpenLuminance", parameters: parameters)
+            currentFilterSharp!.setValue(CIImage(image: img), forKey: kCIInputImageKey)
+            let outputSharp = currentFilterSharp!.outputImage
+            let cgimgSharp = contextSharpen.createCGImage(outputSharp!,from: outputSharp!.extent)
+            let processedImageSharp = UIImage(cgImage: cgimg!)
+            img  = processedImageSharp
+            
+            self.tesseract.pageSegmentationMode = .singleBlock
+            self.tesseract.image = img
+            self.tesseract.recognize()
+            self.recognizedText = self.tesseract.recognizedText!
+            print("XXXXXX")
+            print("The text is")
+            print(self.tesseract.recognizedText!)
+            self.removeSpinner()
+            self.saveFoundData()
         }
-        let context = CIContext(options: nil)
-        let currentFilter = CIFilter(name: "CIPhotoEffectNoir")
-        currentFilter!.setValue(CIImage(image: img), forKey: kCIInputImageKey)
-        let output = currentFilter!.outputImage
-        let cgimg = context.createCGImage(output!,from: output!.extent)
-        let processedImage = UIImage(cgImage: cgimg!)
-        img  = processedImage
-        
-        let contextSharpen = CIContext(options: nil)
-        let parameters = [
-            "inputSharpness": NSNumber(value: 1.0)
-        ]
-        let currentFilterSharp = CIFilter(name: "CISharpenLuminance", parameters: parameters)
-        currentFilterSharp!.setValue(CIImage(image: img), forKey: kCIInputImageKey)
-        let outputSharp = currentFilterSharp!.outputImage
-        let cgimgSharp = contextSharpen.createCGImage(outputSharp!,from: outputSharp!.extent)
-        let processedImageSharp = UIImage(cgImage: cgimg!)
-        img  = processedImageSharp
-        tesseract.pageSegmentationMode = .singleBlock
-        tesseract.image = img
-        tesseract.recognize()
-        recognizedText = tesseract.recognizedText!
-        print("XXXXXX")
-        print("The text is")
-        print(tesseract.recognizedText!)
-        self.removeSpinner()
-        saveFoundData()
+
         
         
     }

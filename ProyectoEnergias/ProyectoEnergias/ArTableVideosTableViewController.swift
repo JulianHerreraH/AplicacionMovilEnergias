@@ -1,41 +1,18 @@
 //
-//  ARMainTableViewController.swift
-//  ProyectoEnergias
+//  ArTableVideosTableViewController.swift
+//  EcoBook
 //
-//  Created by cdt307 on 3/6/19.
+//  Created by Ali Bryan Villegas Zavala on 4/8/19.
 //  Copyright © 2019 Tec de Monterrey. All rights reserved.
 //
 
+
 import UIKit
-extension UIImageView {
-    public func imageFromURLTable(urlString: String) {
-        
-        let activityIndicator = UIActivityIndicatorView(style: .gray)
-        activityIndicator.frame = CGRect.init(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
-        activityIndicator.startAnimating()
-        if self.image == nil{
-            self.addSubview(activityIndicator)
-        }
-        
-        URLSession.shared.dataTask(with: NSURL(string: urlString)! as URL, completionHandler: { (data, response, error) -> Void in
-            
-            if error != nil {
-                print(error ?? "No Error")
-                return
-            }
-            DispatchQueue.main.async(execute: { () -> Void in
-                let image = UIImage(data: data!)
-                activityIndicator.removeFromSuperview()
-                self.image = image
-            })
-            
-        }).resume()
-    }
-}
 
-class ARMainTableViewController: UITableViewController, UISearchResultsUpdating{
-
-    let dataStringURL = "http://martinmolina.com.mx/201911/data/ProyectoEnergiasRenovables/bulbs.json"
+class ArTableVideosTableViewController: UITableViewController, UISearchResultsUpdating{
+    var SelectedURL = ""
+    var SelectedIs360 = ""
+    let dataStringURL = "http://martinmolina.com.mx/201911/data/ProyectoEnergiasRenovables/ARvideos.json"
     var dataObj: [Any]?
     var receivedId = -1
     @IBOutlet weak var cellImage: UIImageView!
@@ -54,11 +31,8 @@ class ARMainTableViewController: UITableViewController, UISearchResultsUpdating{
             filteredData = dataObj!.filter{
                 let objectData=$0 as! [String:Any]
                 
-                var titleText = objectData["Bulb"] as! String
-                titleText += objectData["Watts"] as! String
-                titleText += objectData["Lumens"] as! String
-                titleText += objectData["Lifetime"] as! String
-                titleText += objectData["ColorTemp"] as! String
+                var titleText = ""
+                titleText +=  objectData["Title"] as! String
                 return(titleText.lowercased().contains(searchController.searchBar.text!.lowercased()))
             }
         }
@@ -104,7 +78,9 @@ class ARMainTableViewController: UITableViewController, UISearchResultsUpdating{
         tableView.tableHeaderView = searchController.searchBar
         
     }
-    
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+       
+    }
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -122,22 +98,18 @@ class ARMainTableViewController: UITableViewController, UISearchResultsUpdating{
         let cell = tableView.dequeueReusableCell(withIdentifier: "ARMainCell", for: indexPath) as! ARTableCellTableViewCell
         // Configure the cell...
         //cell.textLabel?.text = dinos[indexPath.row]
-       let objectData = filteredData[indexPath.row] as! [String:Any]
+        let objectData = filteredData[indexPath.row] as! [String:Any]
         //let sectionName:String = objectData["ARMainSectionName"] as! String
-        var titleText = objectData["Bulb"] as! String
-        titleText += " "
-        titleText += objectData["Watts"] as! String
+        var titleText = ""
+        //titleText +=  objectData["Panel"] as! String
+        titleText += objectData["Title"] as! String
         cell.cellTitleText.text = titleText
-        var dataText = objectData["Lumens"] as! String
-        dataText += ", "
-        dataText += objectData["ColorTemp"] as! String
-        dataText += ", Vida: "
-        dataText += objectData["Lifetime"] as! String
-            
+        
+        var dataText = objectData["Description"] as! String
         cell.cellDataLabel.text = dataText
-        var imageURL = objectData["Image"] as! String
+        var imageURL = objectData["Thumbnail"] as! String
         cell.cellImage.imageFromURL(urlString: imageURL)
-
+        
         //cell.textLabel?.text = sectionName
         return cell
     }
@@ -183,10 +155,18 @@ class ARMainTableViewController: UITableViewController, UISearchResultsUpdating{
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+        let next = segue.destination as! ARVIDEOSViewController
+        let indice = self.tableView.indexPathForSelectedRow?.row
+        let objectData = dataObj?[indice!] as! [String:Any]
+        let url:String = objectData["VideoURL"] as! String
+        let is360Video:String = objectData["is360"] as! String
+        next.is360 = is360Video
+        next.receivedURL = url
         let backItem = UIBarButtonItem()
-        backItem.title = "Ahorradores"
+        backItem.title = "Regresar"
         navigationItem.backBarButtonItem = backItem
-     
+     // Pass the selected object to the new view controller.
      }
-
+    
 }

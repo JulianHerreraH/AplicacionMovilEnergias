@@ -8,9 +8,10 @@
 
 import UIKit
 import Foundation
+import AVKit
+
 extension UIImageView {
     public func imageFromURL(urlString: String) {
-        
         let activityIndicator = UIActivityIndicatorView(style: .gray)
         activityIndicator.frame = CGRect.init(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
         activityIndicator.startAnimating()
@@ -39,7 +40,7 @@ class EnergyDetailViewController: UIViewController {
     var receivedEnergyId = -1
     var dataObj:[Any]?
     @IBOutlet weak var DetailTitle: UILabel!
-    
+    var videoUrl = ""
     
     @IBOutlet weak var EnergyDefinitionTextView: UITextView!
     
@@ -67,7 +68,7 @@ class EnergyDetailViewController: UIViewController {
         let energyFact2Text = energyData["EnergyFact2"] as! String
         let imageURL1 = energyData["EnergyImage1"] as! String
         let imageURL2 = energyData["EnergyImage2"] as! String
-
+        videoUrl = energyData["EnergyVideo"] as! String
         EnergyDefinitionTextView.isEditable = false
         EnergyDefinitionTextView.isScrollEnabled = false
         EnergyFact1.isEditable = false
@@ -103,14 +104,37 @@ class EnergyDetailViewController: UIViewController {
         }
         return [AnyObject]()
     }
-    /*
+    
     // MARK: - Navigation
-
+    @IBAction func openVideo(_ sender: Any) {
+        if videoUrl != "" {
+            showSpinner(onView: self.view)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.removeSpinner()
+                let videoURL = URL(string: self.videoUrl)
+                let player = AVPlayer(url: videoURL!)
+                let playerViewController = ExtendedAVPlayerViewController()
+                playerViewController.player = player
+                self.present(playerViewController, animated: true) {
+                    playerViewController.player!.play()
+                }
+                NotificationCenter.default.addObserver(self, selector: #selector(self.videoDidEnd), name:
+                    NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+            }
+        }
+    }
+    @objc func videoDidEnd(notification: NSNotification) {
+        print("VIDEOENDED")
+        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
+    }
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let next = segue.destination as! VideoPlayerViewController
+        next.resourceUrl = videoUrl
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }

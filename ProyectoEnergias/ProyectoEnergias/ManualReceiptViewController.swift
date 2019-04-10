@@ -22,6 +22,8 @@ class ManualReceiptViewController: UIViewController, UIPickerViewDataSource, UIP
                                             "PeriodoFinal": "?",
                                             "Tarifa": "?",
                                             "ConsumoTotal" : "?" , "añoInicial": "?", "añoFinal": "?"]
+    var userDataReceipts = [[String:String]]()
+
     @IBOutlet weak var addReceiptButton: UIButton!
     @IBOutlet weak var periodoFinal: UIPickerView!
     @IBOutlet weak var tarifaPicker: UIPickerView!
@@ -156,7 +158,7 @@ class ManualReceiptViewController: UIViewController, UIPickerViewDataSource, UIP
             receivedBillData["añoInicial"] = "2019"
             receivedBillData["añoFinal"] = "2019"
             receivedBillData["PeriodoInicial"] = "Ene"
-            receivedBillData["PeriodoFinal"] = "Mar"
+            receivedBillData["PeriodoFinal"] = "Ene"
         }
         
         
@@ -190,12 +192,37 @@ class ManualReceiptViewController: UIViewController, UIPickerViewDataSource, UIP
     }
     
     @IBAction func addEnergyBill(_ sender: Any) {
-        var fin = Int(receivedBillData["añoFinal"]!) ?? 2000
-        var ini = Int(receivedBillData["añoInicial"]!) ?? 2010
-        if(fin < ini){
+        var fin = Int(receivedBillData["añoFinal"]!) ?? 2018
+        var ini = Int(receivedBillData["añoInicial"]!) ?? 2019
+        
+        var iniMes = receivedBillData["PeriodoInicial"]
+        var finMes = receivedBillData["PeriodoFinal"]
+        var finCounter = 0
+        var iniCounter = 0
+        var finindex = 0
+        var iniIndex = 0
+        for mes in meses {
+            if(iniMes?.lowercased() == mes.lowercased()){
+                iniIndex = iniCounter
+            }
+            if(finMes?.lowercased() == mes.lowercased()){
+                finindex = finCounter
+            }
+            finCounter = finCounter + 1
+            iniCounter = iniCounter + 1
+        }
+        print("INI COUNTER")
+        print(iniIndex)
+        print("FIN COUNTER")
+        print(finindex)
+        
+        if(fin < ini  || finindex <= iniIndex){
             let alert = UIAlertController(title: "Cuidado!", message: "Período Final no puede ser menor o igual al inicial", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default,handler: {(action) in alert.dismiss(animated: true, completion: nil)}))
             self.present(alert,animated: true, completion: nil)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
+                // Code you want to be delayed
+            }
         }
         else{
             saveCFEData()
@@ -278,7 +305,6 @@ class ManualReceiptViewController: UIViewController, UIPickerViewDataSource, UIP
     
     
     func saveCFEData() {
-        defaults.set(true, forKey: "hasEnergyBill")
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: receivedBillData, options: .prettyPrinted)
             let decoded = try JSONSerialization.jsonObject(with: jsonData, options: [])
@@ -294,6 +320,36 @@ class ManualReceiptViewController: UIViewController, UIPickerViewDataSource, UIP
         } catch {
             print(error.localizedDescription)
         }
+        
+        if(defaults.bool(forKey: "hasEnergyBill")){
+            if((defaults.array(forKey: "userDataReceipts")) != nil){
+                userDataReceipts = defaults.array(forKey: "userDataReceipts") as! [[String : String]]
+                userDataReceipts.append(receivedBillData)
+                defaults.set(userDataReceipts, forKey: "userDataReceipts")
+            }
+            
+            print("HAS RECEIPT")
+            print("SAVED DATA:")
+            print(userDataReceipts)
+        }
+        else{
+            defaults.set(true, forKey: "hasEnergyBill")
+            userDataReceipts.append(receivedBillData)
+            defaults.set(userDataReceipts, forKey: "userDataReceipts")
+            print("HAS NO RECEIPT")
+            print("SAVED DATA:")
+            print(userDataReceipts)
+            /*
+            var emptyBillData:[String:String] = ["CostoTotal": "0.0",
+                                                    "PeriodoInicial": "Ene",
+                                                    "PeriodoFinal": "Feb",
+                                                    "Tarifa": "?",
+                                                    "ConsumoTotal" : "?" , "añoInicial": "?", "añoFinal": "?"]
+            for x in 0...24 {
+                userDataReceipts[] = emptyBillData
+            } */
+        }
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -302,7 +358,6 @@ class ManualReceiptViewController: UIViewController, UIPickerViewDataSource, UIP
         navigationItem.backBarButtonItem = backItem
         //navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
-        
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
