@@ -9,9 +9,6 @@
 //  ViewController.swift
 //  Foco2.0
 //
-//  Created by Ayax Alexis Casarrubias Rodríguez on 3/31/19.
-//  Copyright © 2019 Ayax Alexis. All rights reserved.
-//
 
 import UIKit
 import SceneKit
@@ -27,6 +24,7 @@ class ARBULBViewController: UIViewController, ARSCNViewDelegate {
     @IBAction func escalar(_ sender: UIPinchGestureRecognizer) {
         print ("sender Scale")
         print(sender.scale)
+        
         print(bulb.scale)
             let pinchScaleX: CGFloat = sender.scale * CGFloat((bulb.scale.x))
             let pinchScaleY: CGFloat = sender.scale * CGFloat((bulb.scale.y))
@@ -137,6 +135,7 @@ class ARBULBViewController: UIViewController, ARSCNViewDelegate {
     
     @objc func doubleTapped(manejador:UIGestureRecognizer)
     {
+        guard let currentFrame = self.sceneView.session.currentFrame else {return}
         let location2 = manejador.location(in: view)
         print(location2)
         
@@ -152,9 +151,12 @@ class ARBULBViewController: UIViewController, ARSCNViewDelegate {
                 bulb = referenceNode!
             }
             //sceneView.pointOfView?.addChildNode(bulb!)
-
+            var traduccion = matrix_identity_float4x4
+            //definir un metro alejado del dispositivo
+            traduccion.columns.3.z = -1.0
+            bulb.simdTransform = matrix_multiply(currentFrame.camera.transform, traduccion)
             self.sceneView.scene.rootNode.addChildNode(bulb)
-            bulb.position = SCNVector3Make(0, 0, -5)
+            //bulb.position = SCNVector3Make(0, 0, -5)
         }
         
         bulbCounter = 1

@@ -8,7 +8,8 @@
 
 
 import UIKit
-
+import FirebaseAuth
+import Firebase
 class ProfileSettingsTableViewController: UITableViewController {
     
     @IBOutlet weak var eraseDataButton: UIView!
@@ -28,14 +29,38 @@ class ProfileSettingsTableViewController: UITableViewController {
         print(indexPath.row)
         if indexPath.row == 1 {
             confirmDataErase()
-            //here you can enter the action you want to start when cell 1 is clicked
-            
+        }
+        else if indexPath.row == 2 {
+            confirmLogout()
         }
     }
    
+    func confirmLogout(){
+        showSpinner(onView: self.view)
+        try! Auth.auth().signOut()
+
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.removeSpinner()
+            self.performSegue(withIdentifier: "logoutSegue", sender: self)
+        }
+        
+
+    }
     func confirmDataErase(){
-        let alert = UIAlertController(title: "Borrar Datos", message: "Confirmas borrar la información agregada a esta aplicación, importante: Esta opción no borra tu cuenta, únicamente los datos que se han guardado en tu cuenta", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .destructive,handler: {(action) in alert.dismiss(animated: true, completion: nil)}))
+        let alert = UIAlertController(title: "Borrar Datos", message: "Confirmas borrar la información agregada a esta aplicación, importante: Esta opción no borra tu cuenta, únicamente los datos que se han guardado en ella", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: {_ in
+            // erases firebase Data
+            let ref:DatabaseReference = Database.database().reference()
+            ref.child("usuarios").child(Auth.auth().currentUser!.uid).child("Recibos").removeValue()
+            // alert to indicate it has been erased
+            
+            let alert = UIAlertController(title: "Éxito", message: "Tus datos personales han sido eliminados, ahora no tienes ningún recibo guardado. Cerraremos tu sesión para refrescar la app", preferredStyle: .alert);
+        
+            alert.addAction(UIAlertAction(title: "ok", style: .cancel,handler: {(action) in
+                self.confirmLogout()
+                alert.dismiss(animated: true, completion: nil)}))
+            self.present(alert,animated: true, completion: nil)
+        }))
         alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel,handler: {(action) in alert.dismiss(animated: true, completion: nil)}))
         self.present(alert,animated: true, completion: nil)
     }

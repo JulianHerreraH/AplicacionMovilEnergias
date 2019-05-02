@@ -164,7 +164,7 @@ class ArTableVideosTableViewController: UITableViewController, UISearchResultsUp
         next.is360 = is360Video
         next.receivedURL = url
         let backItem = UIBarButtonItem()
-        backItem.title = "Regresar"
+        backItem.title = "Videos"
         navigationItem.backBarButtonItem = backItem
      // Pass the selected object to the new view controller.
      }

@@ -19,8 +19,8 @@ class PhotoScanViewController: UIViewController, UIImagePickerControllerDelegate
                                     "PeriodoFinal": "?",
                                     "Tarifa": "?",
                                     "ConsumoTotal" : "?",
-                                    "añoInicial": "?",
-                                    "añoFinal":"?"]
+                                    "yearInicial": "?",
+                                    "yearFinal":"?"]
     func saveFoundData(){
         if(recognizedText != ""){
             recognizedText = recognizedText.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -182,7 +182,7 @@ class PhotoScanViewController: UIViewController, UIImagePickerControllerDelegate
                         }
                         forloopcounter = forloopcounter + 1
                     }
-                    billData["añoFinal"] = years[index]
+                    billData["yearFinal"] = years[index]
                 }
                 else{
                     //findClosestDate(date: endPeriod)
@@ -215,9 +215,9 @@ class PhotoScanViewController: UIViewController, UIImagePickerControllerDelegate
                     }
                     forloopcounter = forloopcounter + 1
                 }
-                billData["añoInicial"] = years[index]
+                billData["yearInicial"] = years[index]
                 print("Closest Match:")
-                //billData["añoInicial"] = String(initialPeriod.suffix(4))
+                //billData["yearInicial"] = String(initialPeriod.suffix(4))
                 print(meses[index])
             }
             else{

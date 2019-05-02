@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import Darwin
 
 class ManualReceiptViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     @IBOutlet weak var kwTextField: UITextField!
@@ -21,9 +24,9 @@ class ManualReceiptViewController: UIViewController, UIPickerViewDataSource, UIP
                                             "PeriodoInicial": "?",
                                             "PeriodoFinal": "?",
                                             "Tarifa": "?",
-                                            "ConsumoTotal" : "?" , "añoInicial": "?", "añoFinal": "?"]
+                                            "ConsumoTotal" : "?" , "yearInicial": "?", "yearFinal": "?"]
     var userDataReceipts = [[String:String]]()
-
+    
     @IBOutlet weak var addReceiptButton: UIButton!
     @IBOutlet weak var periodoFinal: UIPickerView!
     @IBOutlet weak var tarifaPicker: UIPickerView!
@@ -40,6 +43,9 @@ class ManualReceiptViewController: UIViewController, UIPickerViewDataSource, UIP
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        self.hideKeyboardWhenTappedAround()
+        
         addReceiptButton.isEnabled = false
         tarifaPicker.delegate   = self
         tarifaPicker.dataSource = self
@@ -104,10 +110,10 @@ class ManualReceiptViewController: UIViewController, UIPickerViewDataSource, UIP
             else{
                 receivedBillData["PeriodoFinal"] = "Mar"
             }
-            if (receivedBillData["añoInicial"] != "?"){
+            if (receivedBillData["yearInicial"] != "?"){
                 var indx = 0
                 for year in years{
-                    let scannedYear = receivedBillData["añoInicial"] as! String
+                    let scannedYear = receivedBillData["yearInicial"] as! String
                     if year == scannedYear.uppercased() {
                         break;
                     }
@@ -117,12 +123,12 @@ class ManualReceiptViewController: UIViewController, UIPickerViewDataSource, UIP
                 yearInitial.reloadAllComponents()
             }
             else{
-                receivedBillData["añoInicial"] = "2019"
+                receivedBillData["yearInicial"] = "2019"
             }
-            if (receivedBillData["añoFinal"] != "?"){
+            if (receivedBillData["yearFinal"] != "?"){
                 var indx = 0
                 for year in years{
-                    let scannedYear = receivedBillData["añoFinal"] as! String
+                    let scannedYear = receivedBillData["yearFinal"] as! String
                     if year == scannedYear.uppercased() {
                         break;
                     }
@@ -132,7 +138,7 @@ class ManualReceiptViewController: UIViewController, UIPickerViewDataSource, UIP
                 yearFinal.reloadAllComponents()
             }
             else{
-                receivedBillData["añoFinal"] = "2019"
+                receivedBillData["yearFinal"] = "2019"
             }
             
             if (receivedBillData["Tarifa"] != "?"){
@@ -150,13 +156,13 @@ class ManualReceiptViewController: UIViewController, UIPickerViewDataSource, UIP
             }
             else{
                 receivedBillData["Tarifa"] = "1"
-
+                
             }
         }
         else{
             receivedBillData["Tarifa"] = "1"
-            receivedBillData["añoInicial"] = "2019"
-            receivedBillData["añoFinal"] = "2019"
+            receivedBillData["yearInicial"] = "2019"
+            receivedBillData["yearFinal"] = "2019"
             receivedBillData["PeriodoInicial"] = "Ene"
             receivedBillData["PeriodoFinal"] = "Ene"
         }
@@ -192,8 +198,8 @@ class ManualReceiptViewController: UIViewController, UIPickerViewDataSource, UIP
     }
     
     @IBAction func addEnergyBill(_ sender: Any) {
-        var fin = Int(receivedBillData["añoFinal"]!) ?? 2018
-        var ini = Int(receivedBillData["añoInicial"]!) ?? 2019
+        var fin = Int(receivedBillData["yearFinal"]!) ?? 2018
+        var ini = Int(receivedBillData["yearInicial"]!) ?? 2019
         
         var iniMes = receivedBillData["PeriodoInicial"]
         var finMes = receivedBillData["PeriodoFinal"]
@@ -258,10 +264,10 @@ class ManualReceiptViewController: UIViewController, UIPickerViewDataSource, UIP
             receivedBillData["Tarifa"] = tarifas[row]
         }
         else if pickerView == yearFinal{
-            receivedBillData["añoFinal"] = years[row]
+            receivedBillData["yearFinal"] = years[row]
         }
         else if pickerView == yearInitial{
-            receivedBillData["añoInicial"] = years[row]
+            receivedBillData["yearInicial"] = years[row]
         }
         else if pickerView == periodoInicial{
             receivedBillData["PeriodoInicial"] = meses[row]
@@ -289,10 +295,10 @@ class ManualReceiptViewController: UIViewController, UIPickerViewDataSource, UIP
             receivedBillData["Tarifa"] = tarifas[row]
         }
         else if pickerView == yearFinal{
-            receivedBillData["añoFinal"] = years[row]
+            receivedBillData["yearFinal"] = years[row]
         }
         else if pickerView == yearInitial{
-            receivedBillData["añoInicial"] = years[row]
+            receivedBillData["yearInicial"] = years[row]
         }
         else if pickerView == periodoInicial{
             receivedBillData["PeriodoInicial"] = meses[row]
@@ -305,25 +311,13 @@ class ManualReceiptViewController: UIViewController, UIPickerViewDataSource, UIP
     
     
     func saveCFEData() {
-        do {
-            let jsonData = try JSONSerialization.data(withJSONObject: receivedBillData, options: .prettyPrinted)
-            let decoded = try JSONSerialization.jsonObject(with: jsonData, options: [])
-            // here "decoded" is of type `Any`, decoded from JSON data
-            
-            // you can now cast it with the right type
-            if let dictFromJSON = decoded as? [String:String] {
-                print("JSON")
-                print(dictFromJSON)// use dictFromJSON
-            }
-            // here "jsonData" is the dictionary encoded in JSON data
-            
-        } catch {
-            print(error.localizedDescription)
-        }
+        showSpinner(onView: view)
+        var currentUser = Auth.auth().currentUser
         
         if(defaults.bool(forKey: "hasEnergyBill")){
             if((defaults.array(forKey: "userDataReceipts")) != nil){
                 userDataReceipts = defaults.array(forKey: "userDataReceipts") as! [[String : String]]
+                receivedBillData["usuario"] = currentUser?.email
                 userDataReceipts.append(receivedBillData)
                 defaults.set(userDataReceipts, forKey: "userDataReceipts")
             }
@@ -334,22 +328,69 @@ class ManualReceiptViewController: UIViewController, UIPickerViewDataSource, UIP
         }
         else{
             defaults.set(true, forKey: "hasEnergyBill")
+            receivedBillData["usuario"] = currentUser?.email
             userDataReceipts.append(receivedBillData)
             defaults.set(userDataReceipts, forKey: "userDataReceipts")
             print("HAS NO RECEIPT")
             print("SAVED DATA:")
             print(userDataReceipts)
-            /*
-            var emptyBillData:[String:String] = ["CostoTotal": "0.0",
-                                                    "PeriodoInicial": "Ene",
-                                                    "PeriodoFinal": "Feb",
-                                                    "Tarifa": "?",
-                                                    "ConsumoTotal" : "?" , "añoInicial": "?", "añoFinal": "?"]
-            for x in 0...24 {
-                userDataReceipts[] = emptyBillData
-            } */
         }
+        do {
+            print("JSON")
+            var userDataReceiptsOnlyUser = [[String:String]]()
+            for receipt in userDataReceipts {
+                if(receipt["usuario"] == Auth.auth().currentUser?.email){
+                    print("THIS IS  FROM USER")
+                    userDataReceiptsOnlyUser.append(receipt)
+                }
+            }
+            let jsonData = try JSONSerialization.data(withJSONObject: userDataReceiptsOnlyUser, options: .prettyPrinted)
+            //save Data to FIREBASE
+            var ref:DatabaseReference = Database.database().reference()
+            var onlyLast = [[String:String]]()
+            var recibos:NSArray?
+            ref.child("usuarios").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            if(snapshot.hasChild("Recibos")){
+                let value = snapshot.value as? NSDictionary
+                print("FOUNDVALUE")
+                
+                if value != nil{
+                    recibos = (value?["Recibos"] as? NSArray)!
+                    print("FOUNDVALUEARRAY")
+                    if recibos != nil {
+                        print(recibos)
+                        
+                    }
+                    
+                }
+                onlyLast = recibos as! [[String : String]]
+                }
+            onlyLast.append(userDataReceiptsOnlyUser.last!)
+           print("ONLYLAST")
+                print(onlyLast)
+                ref.child("usuarios").child(Auth.auth().currentUser!.uid).updateChildValues(["Recibos": onlyLast])
+            })
+                
+            { (error) in
+                let alert = UIAlertController(title: "alerta", message: error.localizedDescription, preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
+                
+                self.present(alert, animated: true)
+                print("ERRORFOUND")
+                print(error.localizedDescription)
+                self.removeSpinner()
+            }
+            
+            
+            let decoded = try JSONSerialization.jsonObject(with: jsonData, options: [])
+            // here "decoded" is of type `Any`, decoded from JSON data
+            print(decoded)
 
+        } catch {
+            print(error.localizedDescription)
+        }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -357,7 +398,7 @@ class ManualReceiptViewController: UIViewController, UIPickerViewDataSource, UIP
         backItem.title = "Regresar"
         navigationItem.backBarButtonItem = backItem
         //navigationController?.popViewController(animated: true)
-        self.dismiss(animated: true, completion: nil)
+        //self.dismiss(animated: true, completion: nil)
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }

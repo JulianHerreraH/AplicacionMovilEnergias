@@ -54,6 +54,17 @@ class DeviceDetailTableViewController: UITableViewController, UISearchResultsUpd
         return [AnyObject]()
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("selected Section 0")
+        
+        if indexPath.section == 0
+        {
+            performSegue(withIdentifier: "goToDevicesGraph", sender: self)
+        }
+        else {
+            performSegue(withIdentifier: "showDeviceSegue", sender: self)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,7 +97,10 @@ class DeviceDetailTableViewController: UITableViewController, UISearchResultsUpd
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return filteredData.count
+        if section == 0 {
+            return 1
+        }
+        return filteredData.count - 1
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -109,20 +123,22 @@ class DeviceDetailTableViewController: UITableViewController, UISearchResultsUpd
         //let sectionName:String = objectData["ARMainSectionName"] as! String
         let devicesPerCategory = objectData["Devices"] as! [Dictionary<String,AnyObject>]
         var titleText = devicesPerCategory
+        print(devicesPerCategory)
         var firstTitle = titleText[indexPath.row]
+        
         cell.cellTitleText.text = (firstTitle["name"] as! String)
         let imageURL = (firstTitle["imageURL"] as! String)
         cell.cellImage.imageFromURL(urlString: imageURL)
-      /*  var dataText = objectData["Lumens"] as! String
-        dataText += ", "
-        dataText += objectData["ColorTemp"] as! String
-        dataText += ", Vida: "
-        dataText += objectData["Lifetime"] as! String
-        
-        //cell.cellDataLabel.text = dataText
-        var imageURL = objectData["Image"] as! String
-        cell.cellImage.imageFromURL(urlString: imageURL)
-        */
+        /*  var dataText = objectData["Lumens"] as! String
+         dataText += ", "
+         dataText += objectData["ColorTemp"] as! String
+         dataText += ", Vida: "
+         dataText += objectData["Lifetime"] as! String
+         
+         //cell.cellDataLabel.text = dataText
+         var imageURL = objectData["Image"] as! String
+         cell.cellImage.imageFromURL(urlString: imageURL)
+         */
         //cell.textLabel?.text = sectionName
         return cell
     }
@@ -179,23 +195,37 @@ class DeviceDetailTableViewController: UITableViewController, UISearchResultsUpd
      // Pass the selected object to the new view controller.
      }*/
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let siguiente = segue.destination as! DeviceInfoViewController
         
-       var objectData = filteredData[0] as! [String:Any]
-
-        if(self.tableView.indexPathForSelectedRow?.section == 1){
-             objectData = filteredData[1] as! [String:Any]
-        }
-        else if(self.tableView.indexPathForSelectedRow?.section == 2){
-             objectData = filteredData[2] as! [String:Any]
+        if (segue.identifier == "goToDevicesGraph") {
             
         }
-        let devicesPerCategory = objectData["Devices"] as! [Dictionary<String,AnyObject>]
-        var titleText = devicesPerCategory
-        var firstTitle = titleText[(self.tableView.indexPathForSelectedRow?.row)!]
+        else {
+            if(self.tableView.indexPathForSelectedRow?.section != 0){
+                let siguiente = segue.destination as! DeviceInfoViewController
+                
+                var objectData = filteredData[0] as! [String:Any]
+                
+                if(self.tableView.indexPathForSelectedRow?.section == 1){
+                    objectData = filteredData[1] as! [String:Any]
+                }
+                else if(self.tableView.indexPathForSelectedRow?.section == 2){
+                    objectData = filteredData[2] as! [String:Any]
+                    
+                }
+                else if(self.tableView.indexPathForSelectedRow?.section == 3){
+                    objectData = filteredData[3] as! [String:Any]
+                    
+                }
+                let devicesPerCategory = objectData["Devices"] as! [Dictionary<String,AnyObject>]
+                var titleText = devicesPerCategory
+                var firstTitle = titleText[(self.tableView.indexPathForSelectedRow?.row)!]
+                
+                let indice = (firstTitle["_id"] as! String)
+                siguiente.receivedId = indice
+            }
+            
+        }
         
-        let indice = (firstTitle["_id"] as! String)
-        siguiente.receivedId = indice
         let backItem = UIBarButtonItem()
         backItem.title = "Dispositivos"
         

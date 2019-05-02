@@ -1,0 +1,16 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "filename" : "Captura de Pantalla 2019-04-30 a la(s) 16.00.58.png"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  },
+  "properties" : {
+    "width" : 15,
+    "unit" : "centimeters"
+  }
+}

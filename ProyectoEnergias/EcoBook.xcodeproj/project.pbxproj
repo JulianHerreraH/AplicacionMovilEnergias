@@ -63,6 +63,7 @@
 		F1529C5F2242AE71009AE554 /* CameraShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1529C5E2242AE71009AE554 /* CameraShowViewController.swift */; };
 		F1529C612242C66D009AE554 /* ArScreenPanelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1529C602242C66D009AE554 /* ArScreenPanelsViewController.swift */; };
 		F1529C652242C89C009AE554 /* panelSolar.png in Resources */ = {isa = PBXBuildFile; fileRef = F1529C642242C89B009AE554 /* panelSolar.png */; };
+		F16C45C32279189A00D81204 /* ARTutorialReciboViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16C45C22279189A00D81204 /* ARTutorialReciboViewController.swift */; };
 		F177A997223EC0EB00513F35 /* HomeARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177A996223EC0EB00513F35 /* HomeARViewController.swift */; };
 		F177A99D223ECA8300513F35 /* ARTableCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F177A99C223ECA8300513F35 /* ARTableCellTableViewCell.swift */; };
 		F17AB263225BE2BE00DD7FFB /* arVideosIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F17AB262225BE2BC00DD7FFB /* arVideosIcon.png */; };
@@ -84,6 +85,8 @@
 		F1B163B32246B6E10045DB03 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B163B22246B6E10045DB03 /* SettingsTableViewController.swift */; };
 		F1B163B52246BA200045DB03 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B163B42246BA200045DB03 /* AboutUsViewController.swift */; };
 		F1B163B72246C1470045DB03 /* ManualReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B163B62246C1470045DB03 /* ManualReceiptViewController.swift */; };
+		F1BDA6A12277685600A39606 /* DevicesGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BDA6A02277685600A39606 /* DevicesGraphViewController.swift */; };
+		F1BDA6A322776A7900A39606 /* BubbleChartFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BDA6A222776A7900A39606 /* BubbleChartFormatter.swift */; };
 		F1C53B552259B70600D8B435 /* LineChartFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C53B542259B70600D8B435 /* LineChartFormatter.swift */; };
 		F1D1FAEA223D58DB00C89252 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D1FAE9223D58DB00C89252 /* StatisticsViewController.swift */; };
 		F1D1FAF0223D71E700C89252 /* HomeLearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D1FAEF223D71E700C89252 /* HomeLearnViewController.swift */; };
@@ -91,6 +94,10 @@
 		F1E9251D223C79B80011EBDB /* WelcomeScreenComsumptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E9251C223C79B80011EBDB /* WelcomeScreenComsumptionViewController.swift */; };
 		F1E92526223CA3C00011EBDB /* MainConsumptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E92525223CA3C00011EBDB /* MainConsumptionViewController.swift */; };
 		F1E92528223CA5460011EBDB /* InfoComsumptionHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E92527223CA5460011EBDB /* InfoComsumptionHelpViewController.swift */; };
+		F1F1FE422267E745006BACD7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1FE412267E745006BACD7 /* Extensions.swift */; };
+		F1F1FE462267EAD2006BACD7 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1FE452267EAD2006BACD7 /* SignUpViewController.swift */; };
+		F1F1FE482267EADF006BACD7 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1FE472267EADF006BACD7 /* LoginPageViewController.swift */; };
+		F1F1FE4A226A5175006BACD7 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F1FE49226A5174006BACD7 /* LocationManager.swift */; };
 		F1F46732224351F700602E45 /* IconIOS in Resources */ = {isa = PBXBuildFile; fileRef = F1F46731224351F600602E45 /* IconIOS */; };
 		F1F46734224356A500602E45 /* bookLight-3.png in Resources */ = {isa = PBXBuildFile; fileRef = F1F46733224356A400602E45 /* bookLight-3.png */; };
 		F1FFA2F6224FFE3A00B5F027 /* receiptExample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F1FFA2F5224FFE3900B5F027 /* receiptExample.jpg */; };
@@ -158,6 +165,7 @@
 		F1529C5E2242AE71009AE554 /* CameraShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraShowViewController.swift; sourceTree = "<group>"; };
 		F1529C602242C66D009AE554 /* ArScreenPanelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArScreenPanelsViewController.swift; sourceTree = "<group>"; };
 		F1529C642242C89B009AE554 /* panelSolar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = panelSolar.png; sourceTree = "<group>"; };
+		F16C45C22279189A00D81204 /* ARTutorialReciboViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARTutorialReciboViewController.swift; sourceTree = "<group>"; };
 		F177A996223EC0EB00513F35 /* HomeARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeARViewController.swift; sourceTree = "<group>"; };
 		F177A99C223ECA8300513F35 /* ARTableCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ARTableCellTableViewCell.swift; path = ProyectoEnergias/ARTableCellTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		F17AB262225BE2BC00DD7FFB /* arVideosIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arVideosIcon.png; sourceTree = "<group>"; };
@@ -179,6 +187,8 @@
 		F1B163B22246B6E10045DB03 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		F1B163B42246BA200045DB03 /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		F1B163B62246C1470045DB03 /* ManualReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualReceiptViewController.swift; sourceTree = "<group>"; };
+		F1BDA6A02277685600A39606 /* DevicesGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesGraphViewController.swift; sourceTree = "<group>"; };
+		F1BDA6A222776A7900A39606 /* BubbleChartFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleChartFormatter.swift; sourceTree = "<group>"; };
 		F1C53B542259B70600D8B435 /* LineChartFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartFormatter.swift; sourceTree = "<group>"; };
 		F1D1FAE9223D58DB00C89252 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		F1D1FAEF223D71E700C89252 /* HomeLearnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLearnViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +196,10 @@
 		F1E9251C223C79B80011EBDB /* WelcomeScreenComsumptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenComsumptionViewController.swift; sourceTree = "<group>"; };
 		F1E92525223CA3C00011EBDB /* MainConsumptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainConsumptionViewController.swift; sourceTree = "<group>"; };
 		F1E92527223CA5460011EBDB /* InfoComsumptionHelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoComsumptionHelpViewController.swift; sourceTree = "<group>"; };
+		F1F1FE412267E745006BACD7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		F1F1FE452267EAD2006BACD7 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		F1F1FE472267EADF006BACD7 /* LoginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
+		F1F1FE49226A5174006BACD7 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		F1F46731224351F600602E45 /* IconIOS */ = {isa = PBXFileReference; lastKnownFileType = folder; path = IconIOS; sourceTree = "<group>"; };
 		F1F46733224356A400602E45 /* bookLight-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bookLight-3.png"; sourceTree = "<group>"; };
 		F1FFA2F5224FFE3900B5F027 /* receiptExample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = receiptExample.jpg; sourceTree = "<group>"; };
@@ -215,6 +229,7 @@
 		39B7C8322230587D001C12A0 = {
 			isa = PBXGroup;
 			children = (
+				F16C45C22279189A00D81204 /* ARTutorialReciboViewController.swift */,
 				39B7C83D2230587D001C12A0 /* ProyectoEnergias */,
 				39B7C83C2230587D001C12A0 /* Products */,
 				6BE11A924FF1247AE7A2D5AC /* Pods */,
@@ -246,15 +261,19 @@
 				39B7C8402230587D001C12A0 /* FirstViewController.swift */,
 				39B7C8422230587D001C12A0 /* SecondViewController.swift */,
 				39B7C8442230587D001C12A0 /* Main.storyboard */,
+				F1F1FE452267EAD2006BACD7 /* SignUpViewController.swift */,
+				F1F1FE472267EADF006BACD7 /* LoginPageViewController.swift */,
 				F1ABB149225D6A520038894E /* Custom2BackSegue.swift */,
 				F1ABB123225D25470038894E /* ARVIDEOSViewController.swift */,
 				F17AB264225BE42B00DD7FFB /* ArTableVideosTableViewController.swift */,
 				F123E041225BCDBD004A0926 /* LineChartFilledFormatter.swift */,
 				F123E03F225BC7D4004A0926 /* RegionConsumptionViewController.swift */,
+				F1F1FE49226A5174006BACD7 /* LocationManager.swift */,
 				F123E03D225ACD90004A0926 /* ExtendedAVPlayerViewController.swift */,
 				F123E03B225AC3D4004A0926 /* VideoPlayerViewController.swift */,
 				F123E039225A9D81004A0926 /* ReplaceControllerSegue.swift */,
 				F1C53B542259B70600D8B435 /* LineChartFormatter.swift */,
+				F1BDA6A222776A7900A39606 /* BubbleChartFormatter.swift */,
 				F137C825225671DC002A0834 /* PhotoScanViewController.swift */,
 				F1B163B62246C1470045DB03 /* ManualReceiptViewController.swift */,
 				F1529C56224199D7009AE554 /* MapViewController.swift */,
@@ -264,6 +283,7 @@
 				F1E9251C223C79B80011EBDB /* WelcomeScreenComsumptionViewController.swift */,
 				39B7C85422306826001C12A0 /* LearnTableViewController.swift */,
 				39B7C8472230587F001C12A0 /* Assets.xcassets */,
+				F1F1FE412267E745006BACD7 /* Extensions.swift */,
 				39B7C8492230587F001C12A0 /* LaunchScreen.storyboard */,
 				F123E037225A78A0004A0926 /* appLaunchViewController.swift */,
 				39B7C84C2230587F001C12A0 /* Info.plist */,
@@ -290,6 +310,7 @@
 				F1FFA2F92252A03C00B5F027 /* PeriodConsumptionViewController.swift */,
 				F1A72B66225953880016ADB0 /* SelectTypeOfReceiptAdViewController.swift */,
 				F1ABB125225D30E60038894E /* ARASSETS.xcassets */,
+				F1BDA6A02277685600A39606 /* DevicesGraphViewController.swift */,
 			);
 			path = ProyectoEnergias;
 			sourceTree = "<group>";
@@ -354,6 +375,7 @@
 				39B7C8382230587D001C12A0 /* Frameworks */,
 				39B7C8392230587D001C12A0 /* Resources */,
 				691F83C84C46CA2204DE1C1D /* [CP] Embed Pods Frameworks */,
+				8B4BD5705F921CE0E79B9C91 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -461,6 +483,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-EcoBook/Pods-EcoBook-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/TesseractOCRiOS/TesseractOCR.framework",
 				"${BUILT_PRODUCTS_DIR}/WeScan/WeScan.framework",
@@ -473,6 +496,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TesseractOCR.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WeScan.framework",
@@ -482,6 +506,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EcoBook/Pods-EcoBook-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8B4BD5705F921CE0E79B9C91 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EcoBook/Pods-EcoBook-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EcoBook/Pods-EcoBook-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A9C1254024E1398AF968D647 /* [CP] Check Pods Manifest.lock */ = {
@@ -513,7 +559,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1F1FE462267EAD2006BACD7 /* SignUpViewController.swift in Sources */,
 				39B7C8432230587D001C12A0 /* SecondViewController.swift in Sources */,
+				F1BDA6A12277685600A39606 /* DevicesGraphViewController.swift in Sources */,
 				F1FFA2FA2252A03C00B5F027 /* PeriodConsumptionViewController.swift in Sources */,
 				F123E040225BC7D4004A0926 /* RegionConsumptionViewController.swift in Sources */,
 				F1B163B52246BA200045DB03 /* AboutUsViewController.swift in Sources */,
@@ -536,15 +584,19 @@
 				F1529C57224199D7009AE554 /* MapViewController.swift in Sources */,
 				F141E6BC224961F100D6A29D /* ProfileSettingsViewController.swift in Sources */,
 				39B7C853223063A9001C12A0 /* MainTabViewController.swift in Sources */,
+				F1F1FE422267E745006BACD7 /* Extensions.swift in Sources */,
 				F123E03C225AC3D4004A0926 /* VideoPlayerViewController.swift in Sources */,
 				39B7C83F2230587D001C12A0 /* AppDelegate.swift in Sources */,
 				F137C826225671DC002A0834 /* PhotoScanViewController.swift in Sources */,
 				F1B163B32246B6E10045DB03 /* SettingsTableViewController.swift in Sources */,
 				F1A384FF224062C20053584F /* StatisticsLocalTableTableViewController.swift in Sources */,
 				F1059577224F0C290068BBCC /* TestsViewController.swift in Sources */,
+				F1F1FE4A226A5175006BACD7 /* LocationManager.swift in Sources */,
 				F1ABB120225D18A20038894E /* ARBULBViewController.swift in Sources */,
 				F14A0920223F5CDD0008570C /* SolarPanelsTableViewController.swift in Sources */,
 				F1ABB124225D25470038894E /* ARVIDEOSViewController.swift in Sources */,
+				F1BDA6A322776A7900A39606 /* BubbleChartFormatter.swift in Sources */,
+				F16C45C32279189A00D81204 /* ARTutorialReciboViewController.swift in Sources */,
 				F14A0924223F6FED0008570C /* StatisticsTableViewController.swift in Sources */,
 				F17AB265225BE42B00DD7FFB /* ArTableVideosTableViewController.swift in Sources */,
 				F123E042225BCDBD004A0926 /* LineChartFilledFormatter.swift in Sources */,
@@ -556,6 +608,7 @@
 				39B7C85522306826001C12A0 /* LearnTableViewController.swift in Sources */,
 				F177A99D223ECA8300513F35 /* ARTableCellTableViewCell.swift in Sources */,
 				F14A091E223F49CF0008570C /* DeviceDetailTableViewController.swift in Sources */,
+				F1F1FE482267EADF006BACD7 /* LoginPageViewController.swift in Sources */,
 				F11690C022417A260085D117 /* ARScreenViewController.swift in Sources */,
 				F1B163B72246C1470045DB03 /* ManualReceiptViewController.swift in Sources */,
 			);
