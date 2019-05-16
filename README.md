@@ -5,10 +5,8 @@ El proyecto de Xcode para compilar y probar se encuentra en la carpeta 'Proyecto
 Entrega para materia de Proyecto de desarrollo para dispositivos móviles.
 
 Desarroladores:
-Ali Villegas 
-Julián Herrera
+Ali Villegas, 
+Julián Herrera,
 Ayax Casarrubias
 
-Mentora:
-
-Marlene Sánchez
+Mentora: Marlene Sánchez
