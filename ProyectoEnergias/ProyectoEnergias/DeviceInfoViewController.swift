@@ -24,22 +24,23 @@ class DeviceInfoViewController: UIViewController {
     
     @IBOutlet weak var EnergyFact1: UITextView!
     @IBOutlet weak var EnergyImageText: UILabel!
-    
+    var deviceURL = ""
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let dataURL = URL(string: dataUrlString)
-        
         let data = try? Data(contentsOf: dataURL!)
         dataObj = try! JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? [AnyObject]
         var a:Int? = Int(receivedId)
-        a = a! - 1
-        
+        a = a!
+        print("FASDFAS")
+        print(dataObj)
         let dataD = dataObj?[a!] as! [String:Any]
         print(dataD)
+        print(a!)
         print(receivedId)
         let energyData = dataD[receivedId] as! [String:Any]
-        
         
         let statTitle = energyData["DeviceName"] as! String
         
@@ -53,7 +54,7 @@ class DeviceInfoViewController: UIViewController {
             recommendationsList += x
             recommendationsList += "\n\n"
         }
-        
+        deviceURL = "https://www.bbc.com/mundo/noticias/2016/04/160426_tecnologia_cuanto_consumen_aparatos_en_bombillos_electricidad_yv"
         DetailTitle.text = statTitle
         EnergyDefinitionTextView.isEditable = false
         EnergyDefinitionTextView.isScrollEnabled = false
@@ -88,6 +89,13 @@ class DeviceInfoViewController: UIViewController {
         }
         return [AnyObject]()
     }
+    
+    @IBAction func openDeviceURL(_ sender: Any) {
+        if deviceURL != ""{
+            UIApplication.shared.open(URL(string: deviceURL)!)
+        }
+        
+    }
     /*
      // MARK: - Navigation
      
@@ -97,5 +105,12 @@ class DeviceInfoViewController: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let next = segue.destination as! MapViewController
+        next.receivedAppliance = self.DetailTitle.text ?? "Electrodomésticos"
+        let backItem = UIBarButtonItem()
+        backItem.title = DetailTitle.text
+        navigationItem.backBarButtonItem = backItem
+    }
     
 }

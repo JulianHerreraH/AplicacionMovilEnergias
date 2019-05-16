@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSRemindersUsageDescription</key>
+	<string>App requiere acceso a recordatorios</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Aplicación necesita acceso al calendario</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>App necesita tu locación</string>
 	<key>CFBundleDevelopmentRegion</key>

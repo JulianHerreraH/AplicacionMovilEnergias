@@ -13,10 +13,24 @@ import Firebase
 class DevicesGraphViewController: UIViewController {
 
     @IBOutlet weak var bubbleChartView: BubbleChartView! //cambia el nombre del view
+    var dataObj: [Any]?
+    var dataStringURL = "http://martinmolina.com.mx/201911/data/ProyectoEnergiasRenovables/graphDevices.json"
+
     var devices = [" ","Calentador","Aire Acondicionado","Refrigerador", "Congelador","TV CRT","Computadora", "Plancha","Cafetera", "Impresora","Aspiradora" ,"Lavadora", "Consola","Microondas", "TV LCD", "Horno eléctrico", "Decodificador", "Secadora", "Sistema de audio", "Tostador", "DVD", "Regulador", "Licuadora", "Módem", "..."]
     var consumption = [0.0, 249, 182, 103,97,46,36,30,27,26,24,19,16,13,11,10,9,9,7,4,4,3,2,2, 0]
     override func viewDidLoad() {
         super.viewDidLoad()
+        //DOWLOAD FROM JSON HAPPENS HERE
+        var dataURL = URL(string:dataStringURL)
+        let data = try? Data(contentsOf: dataURL!)
+        dataObj = try!JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers)  as? [AnyObject]
+        print("DATAOBJ\(dataObj)")
+        var mapDictionary = dataObj?[0] as! [String:Any]
+        print("MAP\(mapDictionary)")
+        devices = mapDictionary["devices"] as! [String]
+        var consumptionPerDevice = mapDictionary["consumption"] as! [Double]
+        consumption = consumptionPerDevice
+        
         setChart(dataPoints: self.devices, values: self.consumption)
             // ...
     }

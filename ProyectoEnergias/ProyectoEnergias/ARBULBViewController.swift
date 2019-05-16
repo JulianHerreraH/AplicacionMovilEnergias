@@ -14,23 +14,37 @@ import UIKit
 import SceneKit
 import ARKit
 
+
 class ARBULBViewController: UIViewController, ARSCNViewDelegate {
     
     
     @IBOutlet var sceneView: ARSCNView!
     var bulb = SCNNode()
     var bulbCounter = 0
-    
+    var isNormalBulb = true
+    var textureURL = "http://martinmolina.com.mx/201911/data/ProyectoEnergiasRenovables/Videos/bulb-texture.jpg"
     @IBAction func escalar(_ sender: UIPinchGestureRecognizer) {
         print ("sender Scale")
         print(sender.scale)
         
         print(bulb.scale)
-            let pinchScaleX: CGFloat = sender.scale * CGFloat((bulb.scale.x))
-            let pinchScaleY: CGFloat = sender.scale * CGFloat((bulb.scale.y))
-            let pinchScaleZ: CGFloat = sender.scale * CGFloat((bulb.scale.z))
-            sender.scale = 1
-            bulb.scale = SCNVector3Make(Float(pinchScaleX), Float(pinchScaleY), Float(pinchScaleZ))
+        let pinchScaleX: CGFloat = sender.scale * CGFloat((bulb.scale.x))
+        let pinchScaleY: CGFloat = sender.scale * CGFloat((bulb.scale.y))
+        let pinchScaleZ: CGFloat = sender.scale * CGFloat((bulb.scale.z))
+        sender.scale = 1
+            
+        
+        
+        if isNormalBulb{
+            if bulb.scale.x > 2{
+                bulb.scale = SCNVector3Make(Float(1), Float(1), Float(1))
+            }else{
+                bulb.scale = SCNVector3Make(Float(pinchScaleX), Float(pinchScaleY), Float(pinchScaleZ))
+                
+            }
+        }else{
+        bulb.scale = SCNVector3Make(Float(pinchScaleX), Float(pinchScaleY), Float(pinchScaleZ))
+        }
         sceneView.reloadInputViews()
     }
     
@@ -51,8 +65,15 @@ class ARBULBViewController: UIViewController, ARSCNViewDelegate {
     
     @IBAction func rotation(_ sender: UIRotationGestureRecognizer) {
         print("Rotating")
-        bulb.eulerAngles = SCNVector3(CGFloat(bulb.rotation.x),CGFloat(bulb.rotation.y),sender.rotation * -1.0)
+        if isNormalBulb{
+            //bulb.eulerAngles = SCNVector3(sender.rotation * -1.0,CGFloat(bulb.rotation.y),CGFloat(bulb.rotation.z))
+        }else{
+
+            bulb.eulerAngles = SCNVector3(CGFloat(bulb.rotation.x),sender.rotation * -1.0,CGFloat(bulb.rotation.z))
+            
+        }
         sceneView.reloadInputViews()
+        
     }
     
     /*
@@ -75,6 +96,7 @@ class ARBULBViewController: UIViewController, ARSCNViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("loades fine ")
         
         // Set the view's delegate
         sceneView.delegate = self
@@ -89,7 +111,7 @@ class ARBULBViewController: UIViewController, ARSCNViewDelegate {
         
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = false
-       
+        
         // Create a new scene
         let scene = SCNScene()
         //        let scene = SCNScene(named: "art.scnassets/bulb2.scn")!
@@ -122,33 +144,67 @@ class ARBULBViewController: UIViewController, ARSCNViewDelegate {
     
     @objc func tapEnPantalla(manejador:UIGestureRecognizer)
     {
-        print("borrado")
         self.sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
             node.removeFromParentNode()
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.bulbCounter = 0
-
+            
         }
         
     }
     
     @objc func doubleTapped(manejador:UIGestureRecognizer)
     {
+        print("borrado")
+        
         guard let currentFrame = self.sceneView.session.currentFrame else {return}
         let location2 = manejador.location(in: view)
         print(location2)
         
         if bulbCounter != 1{
-            if let filePath = Bundle.main.path(forResource: "bulb2", ofType: "scn", inDirectory: "art.scnassets") {
+            // IF model cannot be loaded from JSON, it takes local model
+            if var filePath = Bundle.main.path(forResource: "bulb2", ofType: "scn", inDirectory: "art.scnassets") {
                 print("FOCO FOUND")
                 //self.sceneView.scene = SCNScene(named: "art.scnassets/bulb2.scn")!
                 // ReferenceNode path -> ReferenceNode URL
-                let referenceURL = URL(fileURLWithPath: filePath)
+                var referenceURL = URL(fileURLWithPath: "http://martinmolina.com.mx/201911/data/ProyectoEnergiasRenovables/Videos/bulb2.scn")
+                if !isNormalBulb {
+                    referenceURL = URL(fileURLWithPath: "http://martinmolina.com.mx/201911/data/ProyectoEnergiasRenovables/Videos/cfl_bulb.scn")
+                    filePath = Bundle.main.path(forResource: "cfl_bulb", ofType: "scn", inDirectory: "art.scnassets")!
+                }
+                do {
+                    let scene = try SCNScene(url: referenceURL, options: nil)
+                    self.sceneView.scene = scene
+                    
+                }
+                catch{}
+                
+                referenceURL = URL(fileURLWithPath: filePath)
+                print("URL")
+                print(referenceURL)
                 // Create reference node
                 let referenceNode = SCNReferenceNode(url: referenceURL)
                 referenceNode?.load()
                 bulb = referenceNode!
+                
+                if !isNormalBulb{
+                     var material = SCNMaterial()
+                     var texture = UIImageView()
+                     //texture.imageFromURL(urlString: textureURL)
+                     texture.image = UIImage(named: "art.scnassets/texture")
+                    print(texture.image)
+                     material.diffuse.contents = texture.image
+                    material.locksAmbientWithDiffuse = true
+                    
+                     bulb.geometry?.firstMaterial? = material
+                    bulb.geometry?.materials = [material]
+                    /*
+                     bulb.childNode(withName: "ceramicbase_default", recursively: true)!.geometry?.firstMaterial? = material
+                     bulb.childNode(withName: "bottomceramic_default", recursively: true)!.geometry?.firstMaterial? = material
+                     bulb.childNode(withName: "screwcap_default", recursively: true)!.geometry?.firstMaterial? = material*/
+                }
+                
             }
             //sceneView.pointOfView?.addChildNode(bulb!)
             var traduccion = matrix_identity_float4x4

@@ -12,6 +12,7 @@ import AVKit
 
 extension UIImageView {
     public func imageFromURL(urlString: String) {
+        
         let activityIndicator = UIActivityIndicatorView(style: .gray)
         activityIndicator.frame = CGRect.init(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
         activityIndicator.startAnimating()
@@ -36,6 +37,8 @@ extension UIImageView {
 }
 class EnergyDetailViewController: UIViewController {
     var receivedTitle = ""
+    var firstImageURL = ""
+    var secondImageURL = ""
     var dataUrlString = "http://martinmolina.com.mx/201911/data/ProyectoEnergiasRenovables/EnergyInformation.json"
     var receivedEnergyId = -1
     var dataObj:[Any]?
@@ -69,6 +72,9 @@ class EnergyDetailViewController: UIViewController {
         let imageURL1 = energyData["EnergyImage1"] as! String
         let imageURL2 = energyData["EnergyImage2"] as! String
         videoUrl = energyData["EnergyVideo"] as! String
+       self.firstImageURL = energyData["urlImage1"] as! String
+        self.secondImageURL = energyData["urlImage2"] as! String
+        
         EnergyDefinitionTextView.isEditable = false
         EnergyDefinitionTextView.isScrollEnabled = false
         EnergyFact1.isEditable = false
@@ -85,6 +91,18 @@ class EnergyDetailViewController: UIViewController {
         EnergyImage2.imageFromURL(urlString: imageURL2)
 
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func clickedFirstImage(_ sender: Any) {
+        if firstImageURL != ""  {
+            UIApplication.shared.open(URL(string: firstImageURL)!)
+        }
+    }
+    
+    @IBAction func clickedSecondImage(_ sender: Any) {
+        if secondImageURL != ""  {
+            UIApplication.shared.open(URL(string: secondImageURL)!)
+        }
     }
     
     func JSONParseArray(_ string: String) -> [AnyObject]{

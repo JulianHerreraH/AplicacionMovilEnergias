@@ -2,6 +2,7 @@ PODS:
   - Charts (3.2.2):
     - Charts/Core (= 3.2.2)
   - Charts/Core (3.2.2)
+  - EzPopup (1.0)
   - Firebase/Auth (5.20.1):
     - Firebase/CoreOnly
     - FirebaseAuth (= 5.4.2)
@@ -87,6 +88,7 @@ PODS:
 
 DEPENDENCIES:
   - Charts
+  - EzPopup
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -97,6 +99,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Charts
+    - EzPopup
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -125,6 +128,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Charts: f69cf0518b6d1d62608ca504248f1bbe0b6ae77e
+  EzPopup: 8ab951717736197e57b8f9973816fa2601cd59c5
   Firebase: 2f5235e62f141cb86181c3af0dfe4509706351ac
   FirebaseAnalytics: fd72a26bf8dac84cefba2f0864366f718555a5b0
   FirebaseAuth: dd7bbf03a5aee0eafb3a1aee4d2812bd74bac890
@@ -142,6 +146,6 @@ SPEC CHECKSUMS:
   TesseractOCRiOS: f51bbcd27d84b9ac59950790413a7e4219e84483
   WeScan: 7ebe08c966fbd7321be2be1a962423c237e3e2ec
 
-PODFILE CHECKSUM: f3902593da8318f755a04790f52eb0c3001c835f
+PODFILE CHECKSUM: 3c9754f331d2945f1333b904043422e2a7aca9e6
 
 COCOAPODS: 1.6.1

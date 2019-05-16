@@ -15,7 +15,9 @@ class PeriodConsumptionViewController: UIViewController {
     var realPeriods = ["Ene2018","Feb2018","Mar2018","Abr2018","May2018","Jun2018","Jul2018","Ago2018","Sep2018","Oct2018","Nov2018","Dic2018","Ene2019","Feb2019","Mar2019","Abr2019","May2019","Jun2019","Jul2019","Ago2019","Sep2019","Oct2019","Nov2019","Dic2019"]
     let defaults = UserDefaults.standard
     var limitTar = 300.0
+    var canReduce = false
     var isHighConsum = false
+    var hasEnteredDAC = false
     var consumptionByMonth:[Double] = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
     var userDataReceipts = [[String:String]]()
     @IBOutlet weak var lineChartView: LineChartView! //cambia el nombre del view
@@ -23,7 +25,7 @@ class PeriodConsumptionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         userDataReceipts =  [[String : String]]()
-        
+        showSpinner(onView: view)
         var ref:DatabaseReference = Database.database().reference()
         var recibos:NSArray?
         ref.child("usuarios").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -41,6 +43,8 @@ class PeriodConsumptionViewController: UIViewController {
                 }
             }
             
+            self.removeSpinner()
+            
             self.userDataReceipts = recibos as! [[String : String]]
            
             self.view.layoutIfNeeded()
@@ -54,6 +58,7 @@ class PeriodConsumptionViewController: UIViewController {
                 monthYearFinal += receipt["yearFinal"] ?? "2019"
                 var tarifType = receipt["Tarifa"] ?? "1A"
                 tarifType = tarifType.uppercased()
+                
                 if(tarifType == "1"){
                     self.limitTar = 250
                 }
@@ -76,6 +81,19 @@ class PeriodConsumptionViewController: UIViewController {
                     var consum = receipt["ConstumoTotal"] ?? "500.0"
                     self.limitTar = Double(consum) ?? 500.0
                     self.isHighConsum = true
+                    if !self.hasEnteredDAC {
+                        let alert = UIAlertController(title: "Importante", message: "Notamos que te encuentras en una tarifa de alto consumo DAC, esto quiere decir que estás teniendo un consumo inusual para tu zona, procura disminuir tu consumo para salir de esta tarifa", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "continuar", style: .default, handler: {_ in
+                            if self.canReduce {
+                                let alert = UIAlertController(title: "Importante", message: "Estás apunto de salir de tu tarifa DAC, reduce tu comsumo un poco más y podrás ahorrar bastante en tu siguiente perìodo", preferredStyle: .alert)
+                                alert.addAction(UIAlertAction(title: "Continuar", style: .default, handler: nil))
+                                self.present(alert, animated: true)
+                            }
+                        }))
+                        
+                        self.present(alert, animated: true)
+                        self.hasEnteredDAC = true
+                    }
                 }
                 else{
                     self.limitTar = 300
@@ -101,6 +119,7 @@ class PeriodConsumptionViewController: UIViewController {
                 }
                 
             }
+            
             self.setChart(dataPoints: self.meses, values: self.consumptionByMonth)
             self.removeSpinner()
             // ...
@@ -129,9 +148,15 @@ class PeriodConsumptionViewController: UIViewController {
             dataEntries.append(dataEntry)
             counter = counter + 1
             if values[i] > limitTar {
-                let alert = UIAlertController(title: "Importante", message: "Notamos que en al menos un periodo sobrepasaste el limite de tu tarifa, procura disminuir tu uso energético para evitar convertirte en una tarifa de alto consumo", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Continuar", style: .default, handler: nil))
-                self.present(alert, animated: true)
+                if !hasEnteredDAC{
+                    let alert = UIAlertController(title: "Importante", message: "Notamos que en al menos un periodo sobrepasaste el limite de tu tarifa, procura disminuir tu uso energético para evitar convertirte en una tarifa de alto consumo", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Continuar", style: .default, handler: nil))
+                    self.present(alert, animated: true)
+                }
+                if values[i] - 50  < limitTar {
+                   canReduce = true
+                }
+               
             }
             formato.stringForValue(Double(i), axis: xaxis)
             xaxis.valueFormatter = formato

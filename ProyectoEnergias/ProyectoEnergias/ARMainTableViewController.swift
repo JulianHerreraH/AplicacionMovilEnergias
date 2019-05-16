@@ -34,7 +34,8 @@ extension UIImageView {
 }
 
 class ARMainTableViewController: UITableViewController, UISearchResultsUpdating{
-
+    var isNormal = [true,true,true,false,false,false]
+    var typeOfBulb = true
     let dataStringURL = "http://martinmolina.com.mx/201911/data/ProyectoEnergiasRenovables/bulbs.json"
     var dataObj: [Any]?
     var receivedId = -1
@@ -55,6 +56,7 @@ class ARMainTableViewController: UITableViewController, UISearchResultsUpdating{
                 let objectData=$0 as! [String:Any]
                 
                 var titleText = objectData["Bulb"] as! String
+                
                 titleText += objectData["Watts"] as! String
                 titleText += objectData["Lumens"] as! String
                 titleText += objectData["Lifetime"] as! String
@@ -125,6 +127,13 @@ class ARMainTableViewController: UITableViewController, UISearchResultsUpdating{
        let objectData = filteredData[indexPath.row] as! [String:Any]
         //let sectionName:String = objectData["ARMainSectionName"] as! String
         var titleText = objectData["Bulb"] as! String
+        if titleText == "CFL" {
+            self.isNormal[indexPath.row] = false
+        }
+        else{
+            self.isNormal[indexPath.row] = true
+            print("IS LED")
+        }
         titleText += " "
         titleText += objectData["Watts"] as! String
         cell.cellTitleText.text = titleText
@@ -177,7 +186,11 @@ class ARMainTableViewController: UITableViewController, UISearchResultsUpdating{
      return true
      }
      */
-    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        typeOfBulb = isNormal[indexPath.row]
+        performSegue(withIdentifier: "goToAR", sender: nil)
+
+    }
     
     // MARK: - Navigation
     
@@ -186,7 +199,8 @@ class ARMainTableViewController: UITableViewController, UISearchResultsUpdating{
         let backItem = UIBarButtonItem()
         backItem.title = "Ahorradores"
         navigationItem.backBarButtonItem = backItem
-     
+        let next = segue.destination as! ARBULBViewController
+        next.isNormalBulb = typeOfBulb
      }
 
 }

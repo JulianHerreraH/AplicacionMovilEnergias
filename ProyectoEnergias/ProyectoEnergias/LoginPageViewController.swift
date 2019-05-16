@@ -15,10 +15,14 @@ class LoginPageViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var usernameField: UITextField!
     
     @IBOutlet weak var passwordField: UITextField!
-    
+    let defaults = UserDefaults.standard
+
     @IBOutlet weak var loginButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        if defaults.object(forKey: "mail") != nil {
+            usernameField.text = defaults.object(forKey: "mail") as! String
+        }
         usernameField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         passwordField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         self.hideKeyboardWhenTappedAround()
@@ -75,7 +79,7 @@ class LoginPageViewController: UIViewController, UITextFieldDelegate {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                         self.removeSpinner()
                         self.performSegue(withIdentifier: "successfulLogin", sender: nil)
-                        
+                    self.defaults.set(self.usernameField.text, forKey: "mail")
                     }
                     
                 }

@@ -378,8 +378,7 @@ class PhotoScanViewController: UIViewController, UIImagePickerControllerDelegate
         next.hasReceivedData = true
         let backItem = UIBarButtonItem()
         backItem.title = "Regresar"
-        navigationItem.backBarButtonItem = backItem
-        
+ 
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }

@@ -14,6 +14,8 @@ class StatsDetailsViewController: UIViewController {
     var dataUrlString = ""
     var receivedId = ""
     var dataObj:[Any]?
+    var firstImageURL = ""
+    var secondImageURL = ""
     var clickedSection = "http://martinmolina.com.mx/201911/data/ProyectoEnergiasRenovables/statisticsInfoMexico.json"
     @IBOutlet weak var DetailTitle: UILabel!
     
@@ -67,7 +69,9 @@ class StatsDetailsViewController: UIViewController {
         let energyFact2Text = energyData["StatFact2"] as! String
         let imageURL1 = energyData["StatImage1"] as! String
         let imageURL2 = energyData["StatImage2"] as! String
-        
+        firstImageURL = energyData["urlImage1"] as! String
+        secondImageURL = energyData["urlImage2"] as! String
+
        DetailTitle.text = statTitle
         EnergyDefinitionTextView.isEditable = false
         EnergyDefinitionTextView.isScrollEnabled = false
@@ -86,6 +90,19 @@ class StatsDetailsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    @IBAction func firstImageClicked(_ sender: Any) {
+        if firstImageURL != ""  {
+            UIApplication.shared.open(URL(string: firstImageURL)!)
+        }
+    }
+    
+    @IBAction func sencondImageClicked(_ sender: Any) {
+        if secondImageURL != ""  {
+            UIApplication.shared.open(URL(string: secondImageURL)!)
+        }
+        
+    }
     func JSONParseArray(_ string: String) -> [AnyObject]{
         if let data = string.data(using: String.Encoding.utf8){
             

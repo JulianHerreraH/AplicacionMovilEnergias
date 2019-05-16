@@ -20,7 +20,7 @@ class StatisticsLocalTableViewController: UITableViewController, UISearchResults
     @IBOutlet weak var cellTitle: UIImageView!
     
     var filteredData = [Any]()
-    let searchController = UISearchController(searchResultsController: nil)
+   // let searchController = UISearchController(searchResultsController: nil)
     
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -51,6 +51,7 @@ class StatisticsLocalTableViewController: UITableViewController, UISearchResults
                 }
                 print(titleText)
                 return(titleText.lowercased().contains(searchController.searchBar.text!.lowercased()))
+                self.tableView.reloadData()
             }
         }
         self.tableView.reloadData()
@@ -88,11 +89,11 @@ class StatisticsLocalTableViewController: UITableViewController, UISearchResults
         dataObj = try!JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers)  as? [AnyObject]
         print(dataObj)
         filteredData = dataObj!
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
-        searchController.hidesNavigationBarDuringPresentation = false
+       // searchController.searchResultsUpdater = self
+        //searchController.dimsBackgroundDuringPresentation = false
+       // searchController.hidesNavigationBarDuringPresentation = false
         self.definesPresentationContext = true //asociar barra de busqueda con la tabla
-        tableView.tableHeaderView = searchController.searchBar
+       // tableView.tableHeaderView = searchController.searchBar
         
     }
     

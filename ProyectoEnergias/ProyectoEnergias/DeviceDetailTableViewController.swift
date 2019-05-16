@@ -19,7 +19,7 @@ class DeviceDetailTableViewController: UITableViewController, UISearchResultsUpd
     @IBOutlet weak var cellTitle: UIImageView!
     
     var filteredData = [Any]()
-    let searchController = UISearchController(searchResultsController: nil)
+    //let searchController = UISearchController(searchResultsController: nil)
     
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -80,11 +80,11 @@ class DeviceDetailTableViewController: UITableViewController, UISearchResultsUpd
         dataObj = try!JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers)  as? [AnyObject]
         
         filteredData = dataObj!
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
-        searchController.hidesNavigationBarDuringPresentation = false
+        //searchController.searchResultsUpdater = self
+        //searchController.dimsBackgroundDuringPresentation = false
+        //searchController.hidesNavigationBarDuringPresentation = false
         self.definesPresentationContext = true //asociar barra de busqueda con la tabla
-        tableView.tableHeaderView = searchController.searchBar
+        //tableView.tableHeaderView = //searchController.searchBar
         
     }
     
@@ -225,7 +225,6 @@ class DeviceDetailTableViewController: UITableViewController, UISearchResultsUpd
             }
             
         }
-        
         let backItem = UIBarButtonItem()
         backItem.title = "Dispositivos"
         

@@ -18,7 +18,7 @@ class StatisticsViewController: UIViewController {
         showSpinner(onView: self.view)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { // Change `2.0` to the desired number of seconds.
             self.checkIfUserHasData()
-            // Code you want to be delayed
+            self.removeSpinner()
         }
         
     }

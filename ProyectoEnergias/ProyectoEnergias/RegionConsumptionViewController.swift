@@ -14,7 +14,10 @@ import Firebase
 
 class RegionConsumptionViewController: UIViewController {
     let defaults = UserDefaults.standard
+    var dataObj: [Any]?
+
     var averageCost = 0.0
+    var dataStringURL = "http://martinmolina.com.mx/201911/data/ProyectoEnergiasRenovables/graphRegions.json"
      var estados = ["", "    Aguascalientes", "   Baja California   ", "   Baja California Sur   ", "Campeche", "Chiapas", "Chihuahua", "Coahuila", "Colima", "Ciudad de México", "Durango", "Estado de México", "Guanajuato", "Guerrero" , "Hidalgo", "Jalisco", "Michoacán", "Morelos", "Nayarit", "Nuevo León", "Oaxaca", "Puebla", "Querétaro", "Quintana Roo", "San Luis Potosí", "Sinaloa", "Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz", "Yucatán", "Zacatecas" , ""]
     var consumptionByMonth:[Double] = [0, 252, 377,1100, 249, 237, 375, 317, 252, 270, 258, 261, 254,210, 195, 262, 242, 325, 207, 277, 190, 228, 260,350, 248, 435, 498, 291, 523, 232, 212, 329,340,214,0]
     private let locationManager = LocationManager()
@@ -26,9 +29,23 @@ class RegionConsumptionViewController: UIViewController {
         var costoTotal = 0.0
         var receiptCounter = 0.0
         var userDataReceipts = [[String : String]]()
+        //DOWLOAD FROM JSON HAPPENS HERE
+        var dataURL = URL(string:dataStringURL)
+        let data = try? Data(contentsOf: dataURL!)
+        dataObj = try!JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers)  as? [AnyObject]
+        print("DATAOBJ\(dataObj)")
+        var mapDictionary = dataObj?[0] as! [String:Any]
+        print("MAP\(mapDictionary)")
+        estados = mapDictionary["estados"] as! [String]
+        var consumptionPerMonth = mapDictionary["consumptionByMonth"] as! [Double]
+        consumptionByMonth = consumptionPerMonth
+        
+
+        //estados = dataObj![1] as! [String]
         
         var ref:DatabaseReference = Database.database().reference()
         var recibos:NSArray?
+        self.showSpinner(onView: view)
         ref.child("usuarios").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary
@@ -42,7 +59,7 @@ class RegionConsumptionViewController: UIViewController {
 
                 }
             }
-            
+            self.removeSpinner()
             userDataReceipts = recibos as! [[String : String]]
             
             print("reCEIVED DATA FROM FIREBASE")
@@ -153,7 +170,23 @@ class RegionConsumptionViewController: UIViewController {
 
     }
     
-    
+    func JSONParseArray(_ string: String) -> [AnyObject]{
+        if let data = string.data(using: String.Encoding.utf8){
+            
+            do{
+                
+                if let array = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers)  as? [AnyObject] {
+                    return array
+                }
+            }catch{
+                
+                print("error")
+                //handle errors here
+                
+            }
+        }
+        return [AnyObject]()
+    }
     /*
      // MARK: - Navigation
      

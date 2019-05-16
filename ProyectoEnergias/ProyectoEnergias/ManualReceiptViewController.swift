@@ -11,10 +11,30 @@ import Firebase
 import FirebaseAuth
 import Darwin
 
-class ManualReceiptViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class ManualReceiptViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, hasAddedReminderDelegate{
+    func addedReminder(addedReminder: Bool) {
+        if addedReminder {
+            
+            let alert = UIAlertController(title: "Éxito", message: "El mensaje se ha guardado en tu calendario y recordatorios", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Continuar", style: .default,handler: {(action) in
+                alert.dismiss(animated: true, completion: nil)
+                self.performSegue(withIdentifier: "submitReceipt", sender: nil)
+                
+            }))
+            self.present(alert,animated: true, completion: nil)
+            
+            self.removeSpinner()
+
+        }
+        
+    }
+    
     @IBOutlet weak var kwTextField: UITextField!
     @IBOutlet weak var totalCostTextField: UITextField!
+    
+    
     var comingFrom = ""
+    var hasAddedReminder = false
     let defaults = UserDefaults.standard
     let tarifas = ["1", "1A", "1B", "1C", "1D", "1E", "1F", "DAC"];
     let years = ["2019", "2018", "2017", "2016","2015","2014","2013","2012","2011","2010","2009","2008"];
@@ -43,7 +63,7 @@ class ManualReceiptViewController: UIViewController, UIPickerViewDataSource, UIP
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
+        removeSpinner()
         self.hideKeyboardWhenTappedAround()
         
         addReceiptButton.isEnabled = false
@@ -313,7 +333,9 @@ class ManualReceiptViewController: UIViewController, UIPickerViewDataSource, UIP
     func saveCFEData() {
         showSpinner(onView: view)
         var currentUser = Auth.auth().currentUser
-        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // Change `2.0` to the desired number of seconds.
+            // Code you want to be delayed
+        }
         if(defaults.bool(forKey: "hasEnergyBill")){
             if((defaults.array(forKey: "userDataReceipts")) != nil){
                 userDataReceipts = defaults.array(forKey: "userDataReceipts") as! [[String : String]]
@@ -390,29 +412,54 @@ class ManualReceiptViewController: UIViewController, UIPickerViewDataSource, UIP
         } catch {
             print(error.localizedDescription)
         }
+        let alert = UIAlertController(title: "Recordatorio", message: "¿Quisieras crear un recordatorio para la fecha límite de pago?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Crear Recordatorio", style: .default, handler: {_ in
+            self.createReminder()
+           // self.performSegue(withIdentifier: "submitReceipt", sender: nil)
+
+        }))
+        alert.addAction(UIAlertAction(title: "Ignorar recordatorio", style: .destructive, handler: {_ in
+            self.performSegue(withIdentifier: "submitReceipt", sender: nil)
+
+        }))
+        self.present(alert, animated: true)
+        
         
     }
     
+    
+    func createReminder(){
+        self.performSegue(withIdentifier: "showReminderPage", sender: nil)
+      /* var contentVC = CreateEventViewController()
+        let popupVC = PopupViewController(contentController: contentVC, popupWidth: 100, popupHeight: 200)
+        popupVC.backgroundAlpha = 0.3
+        popupVC.backgroundColor = .black
+        popupVC.canTapOutsideToDismiss = true
+        popupVC.cornerRadius = 10
+        popupVC.shadowEnabled = true
+        // show it by call present(_ , animated:) method from a current UIViewController
+        present(popupVC, animated: true)*/
+        
+        removeSpinner()
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let backItem = UIBarButtonItem()
         backItem.title = "Regresar"
         navigationItem.backBarButtonItem = backItem
+        if segue.identifier == "showReminderPage" { // your identifier here
+            let controller = segue.destination as! CreateEventViewController
+            controller.delegate = self
+        }
         //navigationController?.popViewController(animated: true)
         //self.dismiss(animated: true, completion: nil)
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
     override func viewWillAppear(_ animated: Bool){
-        /*
-         var parentVC = self.children
-         if parentVC.count > 0{
-         print("APRENT")
-         let pp = parentVC[0]
-         if pp is StatisticsViewController {
-         navigationController?.popViewController(animated: false)
-         }
-         }
-         */
+        if hasAddedReminder {
+            self.performSegue(withIdentifier: "submitReceipt", sender: nil)
+        }
     }
     override func viewWillDisappear(_ animated: Bool){
         /*
